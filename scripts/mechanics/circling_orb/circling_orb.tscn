@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://dycdu6qnqpnm3"]
+
+[ext_resource type="Script" uid="uid://cmw4lpixwe0bc" path="res://scripts/mechanics/circling_orb/circling_orb.gd" id="1_fd1a6"]
+[ext_resource type="Texture2D" uid="uid://bjlavjltb3rh4" path="res://assets/Treasure/Treasure.png" id="2_l2vj5"]
+[ext_resource type="PackedScene" uid="uid://uk4n3akblwk0" path="res://scripts/custom_signals/damager/damager.tscn" id="3_pre3g"]
+[ext_resource type="PackedScene" uid="uid://ctxgmkp6pw7jw" path="res://scripts/custom_signals/quantity/quantity.tscn" id="4_p542s"]
+[ext_resource type="Script" uid="uid://b0jdpwn1bs00j" path="res://scripts/custom_signals/quantity/quantity.gd" id="5_fywqk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pre3g"]
+atlas = ExtResource("2_l2vj5")
+region = Rect2(192, 192, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fd1a6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pre3g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pre3g"]
+radius = 14.0
+
+[node name="CirclingOrb" type="Node2D"]
+script = ExtResource("1_fd1a6")
+
+[node name="Pivot" type="Marker2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Orb" type="Node2D" parent="Pivot"]
+unique_name_in_owner = true
+position = Vector2(64, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot/Orb"]
+sprite_frames = SubResource("SpriteFrames_fd1a6")
+
+[node name="hitbox" type="Area2D" parent="Pivot/Orb"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Orb/hitbox"]
+shape = SubResource("CircleShape2D_pre3g")
+
+[node name="Damager" parent="." instance=ExtResource("3_pre3g")]
+unique_name_in_owner = true
+
+[node name="Damage" parent="." instance=ExtResource("4_p542s")]
+unique_name_in_owner = true
+maximum = 1.0
+current = 1.0
+
+[node name="MovementSpeed" parent="." instance=ExtResource("4_p542s")]
+unique_name_in_owner = true
+maximum = 1.0
+current = 1.0
+
+[node name="KnockbackStrength" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_fywqk")
+maximum = 10000.0
+current = 1000.0
+metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
+
+[connection signal="body_entered" from="Pivot/Orb/hitbox" to="." method="_on_area_2d_body_entered"]

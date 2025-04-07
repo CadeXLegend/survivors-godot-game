@@ -1,0 +1,104 @@
+[gd_scene load_steps=13 format=3 uid="uid://0plma5acs1o1"]
+
+[ext_resource type="Texture2D" uid="uid://dopd6e2gvqn8l" path="res://assets/Monster_Creatures_Fantasy(Version 1.3)/Flying eye/Attack3.png" id="1_crlql"]
+[ext_resource type="Script" uid="uid://cvrp7wla0obym" path="res://entities/npcs/skeleton.gd" id="1_plk42"]
+[ext_resource type="PackedScene" uid="uid://ctxgmkp6pw7jw" path="res://scripts/custom_signals/quantity/quantity.tscn" id="3_r6xse"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_crlql"]
+radius = 314.025
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plk42"]
+atlas = ExtResource("1_crlql")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6xse"]
+atlas = ExtResource("1_crlql")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sv33q"]
+atlas = ExtResource("1_crlql")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uaaco"]
+atlas = ExtResource("1_crlql")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymvsc"]
+atlas = ExtResource("1_crlql")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwpf0"]
+atlas = ExtResource("1_crlql")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ew5mc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plk42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6xse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sv33q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uaaco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymvsc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwpf0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_plk42"]
+radius = 22.0907
+
+[node name="Skeleton" type="CharacterBody2D"]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("1_plk42")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.08, 0.08)
+shape = SubResource("CircleShape2D_crlql")
+
+[node name="EnemyDetector" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
+scale = Vector2(1.5488, 1.5488)
+shape = SubResource("CircleShape2D_crlql")
+
+[node name="AnimationController" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_ew5mc")
+speed_scale = 1.6
+
+[node name="PersonalSpace" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PersonalSpace"]
+shape = SubResource("CircleShape2D_plk42")
+
+[node name="Health" parent="." instance=ExtResource("3_r6xse")]
+unique_name_in_owner = true
+maximum = 10.0
+current = 10.0
+
+[node name="MovementSpeed" parent="." instance=ExtResource("3_r6xse")]
+unique_name_in_owner = true
+maximum = 120.0
+current = 120.0
+
+[connection signal="body_entered" from="EnemyDetector" to="." method="_on_enemy_detector_body_entered"]
+[connection signal="body_entered" from="PersonalSpace" to="." method="_on_personal_space_body_entered"]
+[connection signal="none_left" from="Health" to="." method="_on_health_none_left"]

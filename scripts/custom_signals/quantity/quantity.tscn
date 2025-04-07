@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctxgmkp6pw7jw"]
+
+[ext_resource type="Script" uid="uid://b0jdpwn1bs00j" path="res://scripts/custom_signals/quantity/quantity.gd" id="1_fs14b"]
+
+[node name="Quantity" type="Node2D"]
+script = ExtResource("1_fs14b")
+metadata/_custom_type_script = "uid://b0jdpwn1bs00j"

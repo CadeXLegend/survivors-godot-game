@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://bvd1ksaoqyjcy"]
+
+[ext_resource type="Texture2D" uid="uid://u4qe7phup2lo" path="res://drops/coins-chests-etc-2-0-noborders.png" id="1_rst2x"]
+[ext_resource type="Script" uid="uid://dyankreps8rb1" path="res://scripts/mechanics/spawning/spawn_from_corpse.gd" id="2_n68bf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rst2x"]
+atlas = ExtResource("1_rst2x")
+region = Rect2(640, 816, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n68bf"]
+atlas = ExtResource("1_rst2x")
+region = Rect2(624, 816, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sda0q"]
+atlas = ExtResource("1_rst2x")
+region = Rect2(608, 816, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lx3rn"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rst2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n68bf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sda0q")
+}],
+"loop": false,
+"name": &"grow",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rst2x"]
+radius = 48.0937
+
+[node name="Corpse" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_lx3rn")
+animation = &"grow"
+frame = 2
+frame_progress = 1.0
+speed_scale = 0.05
+script = ExtResource("2_n68bf")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_rst2x")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

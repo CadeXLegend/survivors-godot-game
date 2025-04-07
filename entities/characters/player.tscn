@@ -1,0 +1,88 @@
+[gd_scene load_steps=9 format=3 uid="uid://dm04qvosp5tu0"]
+
+[ext_resource type="Script" uid="uid://d25ilwfuqta5h" path="res://entities/characters/player.gd" id="1_3eadt"]
+[ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://entities/characters/happy_boo/happy_boo.tscn" id="2_tory2"]
+[ext_resource type="PackedScene" uid="uid://cjt2pljcy5v4f" path="res://scripts/mechanics/Weapon.tscn" id="3_tory2"]
+[ext_resource type="PackedScene" uid="uid://ctxgmkp6pw7jw" path="res://scripts/custom_signals/quantity/quantity.tscn" id="4_x0jl3"]
+[ext_resource type="PackedScene" uid="uid://dycdu6qnqpnm3" path="res://scripts/mechanics/circling_orb/circling_orb.tscn" id="5_b0wws"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
+radius = 4.34614
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tory2"]
+bg_color = Color(0.152941, 0.168627, 0.188235, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0jl3"]
+bg_color = Color(0.0823529, 0.34902, 0.247059, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 10
+collision_mask = 3
+slide_on_ceiling = false
+script = ExtResource("1_3eadt")
+
+[node name="HappyBoo" parent="." instance=ExtResource("2_tory2")]
+unique_name_in_owner = true
+
+[node name="Collision Circle" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 27)
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_onrkg")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Gun" parent="." instance=ExtResource("3_tory2")]
+position = Vector2(-2, -46)
+
+[node name="Hitbox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="Collision Circle" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-1, 27)
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_onrkg")
+debug_color = Color(0.995841, 0, 0.197995, 0.42)
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = 300
+offset_left = -14.0
+offset_top = -113.0
+offset_right = 15.0
+offset_bottom = -86.0
+theme_override_styles/background = SubResource("StyleBoxFlat_tory2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_x0jl3")
+value = 100.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Health" parent="." instance=ExtResource("4_x0jl3")]
+unique_name_in_owner = true
+maximum = 100.0
+current = 100.0
+
+[node name="MovementSpeed" parent="." instance=ExtResource("4_x0jl3")]
+unique_name_in_owner = true
+maximum = 1000.0
+current = 200.0
+
+[node name="Experience" parent="." instance=ExtResource("4_x0jl3")]
+unique_name_in_owner = true
+maximum = 2.0
+
+[node name="CirclingOrb" parent="." instance=ExtResource("5_b0wws")]
+
+[connection signal="changed" from="Health" to="." method="_on_health_changed"]
+[connection signal="none_left" from="Health" to="." method="_on_health_none_left"]
+[connection signal="full" from="Experience" to="." method="_on_experience_full"]
