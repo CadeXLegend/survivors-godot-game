@@ -18,6 +18,9 @@ func _on_ready():
 	healthBar.max_value = health.maximum
 
 func _physics_process(delta: float) -> void:
+	if health.current <= health.minimum:
+		return
+	
 	var movementDirection = Input.get_vector(directions[0], directions[1], directions[2], directions[3])
 	velocity = movementDirection * movementSpeed.current
 	move_and_slide()

@@ -69,8 +69,8 @@ show_percentage = false
 
 [node name="Health" parent="." instance=ExtResource("4_x0jl3")]
 unique_name_in_owner = true
-maximum = 100.0
-current = 100.0
+maximum = 20.0
+current = 20.0
 
 [node name="MovementSpeed" parent="." instance=ExtResource("4_x0jl3")]
 unique_name_in_owner = true
