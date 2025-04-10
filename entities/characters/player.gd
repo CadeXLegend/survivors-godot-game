@@ -11,6 +11,8 @@ extends CharacterBody2D
 @onready var hitbox = %Hitbox
 @onready var healthBar = %HealthBar
 
+@onready var gameEventsEmitter: GameEventsEmitter = %GameEventsEmitter
+
 var level: int = 0
 
 func _on_ready():
@@ -25,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	velocity = movementDirection * movementSpeed.current
 	move_and_slide()
 	
-	if velocity.length() > 0:
+	if velocity.length() > 0 and movementDirection != Vector2.ZERO:
 		animationController.scale.x = 1 if velocity.x > 0 else -1
 		animationController.play_walk_animation()
 	else:
@@ -42,6 +44,7 @@ func _on_experience_full() -> void:
 	movementSpeed.add(200)
 	xp.remove(xp.maximum)
 	xp.increase_max(level * 100 * 1.25)
+	gameEventsEmitter.pause_game()
 
 func _on_health_none_left() -> void:
 	animationController.play_death_animation()

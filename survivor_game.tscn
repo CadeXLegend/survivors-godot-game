@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqvnu14v3eedw"]
+[gd_scene load_steps=8 format=3 uid="uid://bqvnu14v3eedw"]
 
 [ext_resource type="Script" uid="uid://drutbb2c6j31l" path="res://addons/post_processing/node/post_process.gd" id="1_5mrb7"]
 [ext_resource type="PackedScene" uid="uid://dm04qvosp5tu0" path="res://entities/characters/player.tscn" id="1_wkcnj"]
 [ext_resource type="Script" uid="uid://xpl2g0vdmp2v" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="2_i54c3"]
 [ext_resource type="PackedScene" uid="uid://viljvnxa1xn3" path="res://scripts/mechanics/spawning/mob_spawner.tscn" id="3_kbdm8"]
+[ext_resource type="PackedScene" uid="uid://c6jqo2bqifi4a" path="res://scripts/game_events_emitter.tscn" id="5_i54c3"]
 
 [sub_resource type="Resource" id="Resource_d0dif"]
 script = ExtResource("2_i54c3")
@@ -102,6 +103,9 @@ point_count = 6
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
+
+[node name="GameEventsEmitter" parent="." groups=["GameEvents"] instance=ExtResource("5_i54c3")]
+unique_name_in_owner = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -100

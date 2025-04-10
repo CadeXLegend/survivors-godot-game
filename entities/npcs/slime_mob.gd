@@ -9,9 +9,14 @@ extends CharacterBody2D
 @onready var animationController = %Slime
 @onready var corpse = preload("res://drops/corpse/corpse.tscn")
 @onready var player = get_tree().get_first_node_in_group("Players")
+@onready var collisionBox: CollisionShape2D = %CollisionShape2D
+
+@onready var gameEventsEmitter: GameEventsEmitter = get_tree().get_first_node_in_group("GameEvents")
+var gameStateResponder: GameStateResponder = GameStateResponder.new()
 
 func _ready():
 	animationController.play_walk()
+	gameEventsEmitter.game_paused.connect(func(): gameStateResponder.disable_self_and_physics(self))
 
 func _physics_process(delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)

@@ -24,6 +24,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [node name="Player" type="CharacterBody2D"]
+process_mode = 3
 z_index = 10
 collision_mask = 3
 slide_on_ceiling = false
@@ -40,6 +41,7 @@ shape = SubResource("CircleShape2D_onrkg")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Gun" parent="." instance=ExtResource("3_tory2")]
+process_mode = 1
 position = Vector2(-2, -46)
 
 [node name="Hitbox" type="Area2D" parent="."]

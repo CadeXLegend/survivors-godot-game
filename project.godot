@@ -107,6 +107,7 @@ folder_colors={
 [global_group]
 
 Players="Group of all player nodes"
+GameEvents="group for game events emitter"
 
 [input]
 

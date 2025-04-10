@@ -30,17 +30,56 @@ script = ExtResource("1_fd1a6")
 [node name="Pivot" type="Marker2D" parent="."]
 unique_name_in_owner = true
 
-[node name="Orb" type="Node2D" parent="Pivot"]
+[node name="Orb1" type="Node2D" parent="Pivot"]
 unique_name_in_owner = true
 position = Vector2(64, 0)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot/Orb"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot/Orb1"]
 sprite_frames = SubResource("SpriteFrames_fd1a6")
 
-[node name="hitbox" type="Area2D" parent="Pivot/Orb"]
+[node name="hitbox" type="Area2D" parent="Pivot/Orb1"]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Orb/hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Orb1/hitbox"]
+shape = SubResource("CircleShape2D_pre3g")
+
+[node name="Orb2" type="Node2D" parent="Pivot"]
+unique_name_in_owner = true
+position = Vector2(-64, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot/Orb2"]
+sprite_frames = SubResource("SpriteFrames_fd1a6")
+
+[node name="hitbox" type="Area2D" parent="Pivot/Orb2"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Orb2/hitbox"]
+shape = SubResource("CircleShape2D_pre3g")
+
+[node name="Orb3" type="Node2D" parent="Pivot"]
+unique_name_in_owner = true
+position = Vector2(0, 64)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot/Orb3"]
+sprite_frames = SubResource("SpriteFrames_fd1a6")
+
+[node name="hitbox" type="Area2D" parent="Pivot/Orb3"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Orb3/hitbox"]
+shape = SubResource("CircleShape2D_pre3g")
+
+[node name="Orb4" type="Node2D" parent="Pivot"]
+unique_name_in_owner = true
+position = Vector2(0, -64)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot/Orb4"]
+sprite_frames = SubResource("SpriteFrames_fd1a6")
+
+[node name="hitbox" type="Area2D" parent="Pivot/Orb4"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Orb4/hitbox"]
 shape = SubResource("CircleShape2D_pre3g")
 
 [node name="Damager" parent="." instance=ExtResource("3_pre3g")]
@@ -63,4 +102,7 @@ maximum = 10000.0
 current = 1000.0
 metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
 
-[connection signal="body_entered" from="Pivot/Orb/hitbox" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Pivot/Orb1/hitbox" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Pivot/Orb2/hitbox" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Pivot/Orb3/hitbox" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Pivot/Orb4/hitbox" to="." method="_on_area_2d_body_entered"]
