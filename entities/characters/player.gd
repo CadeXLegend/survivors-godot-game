@@ -4,27 +4,28 @@ extends CharacterBody2D
 @export var directions: Array = ["move_left", "move_right", "move_up", "move_down"]
 @export var damageRate: float = 5.0
 
-@onready var health: Quantity = %Health
-@onready var movementSpeed: Quantity = %MovementSpeed
-@onready var xp: Quantity = %Experience
+@export var stats: Stats
+
 @onready var animationController = %HappyBoo
 @onready var hitbox = %Hitbox
 @onready var healthBar = %HealthBar
 
 @onready var gameEventsEmitter: GameEventsEmitter = %GameEventsEmitter
 
-var level: int = 0
-
-func _on_ready():
-	healthBar.min_value = health.minimum
-	healthBar.max_value = health.maximum
+func _ready():
+	stats = stats.duplicate(true)
+	stats.health.none_left.connect(on_health_none_left)
+	stats.health.modified.connect(on_health_changed)
+	stats.xp.full.connect(on_experience_full)
+	healthBar.min_value = stats.health.minimum
+	healthBar.max_value = stats.health.maximum
 
 func _physics_process(delta: float) -> void:
-	if health.current <= health.minimum:
+	if stats.health.current <= stats.health.minimum:
 		return
 	
 	var movementDirection = Input.get_vector(directions[0], directions[1], directions[2], directions[3])
-	velocity = movementDirection * movementSpeed.current
+	velocity = movementDirection * stats.movementSpeed.current
 	move_and_slide()
 	
 	if velocity.length() > 0 and movementDirection != Vector2.ZERO:
@@ -37,16 +38,16 @@ func _physics_process(delta: float) -> void:
 	var amountOfMobsHittingPlayer: int = overlappingMobs.size() if overlappingMobs else 0
 	
 	if amountOfMobsHittingPlayer > 0:
-		health.remove(damageRate * amountOfMobsHittingPlayer * delta)
+		stats.damager.deal_damage(damageRate * amountOfMobsHittingPlayer * delta, self)
 
-func _on_experience_full() -> void:
-	level += 1
-	xp.remove(xp.maximum)
-	xp.increase_max(level * 100 * 1.25)
+func on_experience_full() -> void:
+	stats.level.add(1)
+	stats.xp.remove(stats.xp.maximum)
+	stats.xp.increase_max(stats.level.current * 100 * 1.25)
 	gameEventsEmitter.pause_game()
 
-func _on_health_none_left() -> void:
+func on_health_none_left() -> void:
 	animationController.play_death_animation()
 
-func _on_health_changed() -> void:
-	healthBar.value = health.current
+func on_health_changed() -> void:
+	healthBar.value = stats.health.current

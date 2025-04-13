@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Droptable" load_steps=3 format=3 uid="uid://c1kor1i6lxq5o"]
+
+[ext_resource type="Script" uid="uid://cwcq3e321esnl" path="res://scripts/droptable.gd" id="1_6x2yd"]
+[ext_resource type="PackedScene" uid="uid://dycdu6qnqpnm3" path="res://scripts/mechanics/circling_orb/circling_orb.tscn" id="1_immp2"]
+
+[resource]
+script = ExtResource("1_6x2yd")
+drops = Array[PackedScene]([ExtResource("1_immp2")])
+metadata/_custom_type_script = "uid://cwcq3e321esnl"

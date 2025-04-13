@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3mmrie56p22a"]
+[gd_scene load_steps=3 format=3 uid="uid://d3mmrie56p22a"]
 
 [ext_resource type="Script" uid="uid://b6c17mxpg0kcg" path="res://scripts/game_state_responder.gd" id="1_0tfyn"]
+[ext_resource type="Resource" uid="uid://cofoms3hldfjn" path="res://resources/damage_numbers.tres" id="2_ixnf1"]
 
 [node name="GameStateResponder" type="Node2D"]
 script = ExtResource("1_0tfyn")
+damageNumbers = ExtResource("2_ixnf1")

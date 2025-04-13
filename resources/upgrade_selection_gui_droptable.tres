@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Droptable" load_steps=3 format=3 uid="uid://4ty645lf7p8r"]
+
+[ext_resource type="PackedScene" uid="uid://cp6e6yv8qmt1" path="res://upgrade_selection_gui.tscn" id="1_lqwjh"]
+[ext_resource type="Script" uid="uid://cwcq3e321esnl" path="res://scripts/droptable.gd" id="2_ndbn1"]
+
+[resource]
+script = ExtResource("2_ndbn1")
+drops = Array[PackedScene]([ExtResource("1_lqwjh")])
+metadata/_custom_type_script = "uid://cwcq3e321esnl"

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=7 format=3 uid="uid://cvcur1qibp73k"]
+
+[ext_resource type="Script" uid="uid://c0i41u05q0ixi" path="res://scripts/stats.gd" id="1_5b4on"]
+[ext_resource type="Script" uid="uid://b0jdpwn1bs00j" path="res://scripts/custom_signals/quantity/quantity.gd" id="1_wglw8"]
+[ext_resource type="Script" uid="uid://dphokgvjqmpke" path="res://scripts/custom_signals/damager/damager.gd" id="2_bxxjv"]
+
+[sub_resource type="Resource" id="Resource_bxxjv"]
+script = ExtResource("1_wglw8")
+minimum = 0.0
+maximum = 1.0
+current = 1.0
+metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
+
+[sub_resource type="Resource" id="Resource_ubmqb"]
+script = ExtResource("2_bxxjv")
+metadata/_custom_type_script = "uid://dphokgvjqmpke"
+
+[sub_resource type="Resource" id="Resource_377uq"]
+script = ExtResource("1_wglw8")
+minimum = 0.0
+maximum = 800.0
+current = 800.0
+metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
+
+[resource]
+script = ExtResource("1_5b4on")
+damage = SubResource("Resource_bxxjv")
+damager = SubResource("Resource_ubmqb")
+movementSpeed = SubResource("Resource_377uq")
+metadata/_custom_type_script = "uid://c0i41u05q0ixi"

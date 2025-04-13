@@ -1,7 +1,7 @@
 class_name GameStateResponder
 extends Node2D
 
-var current_builder: NodeBuilder = null
+@export var damageNumbers: DamageNumbers
 
 func disable_self(ref: Node2D):
 	ref.visible = false

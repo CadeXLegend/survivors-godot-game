@@ -1,15 +1,15 @@
 class_name Quantity
-extends Node2D
+extends Resource
 
 # these are arbitrary defaults to be set in the inspector
-@export var minimum: float = 0
-@export var maximum: float
+@export var minimum: float = 0.0
+@export var maximum: float = 0.0
 @export var current: float = 0.0
 
 # these are the core events correlated to any given quantity
 signal gained
 signal lost
-signal changed
+signal modified
 signal none_left
 signal full
 signal maximum_increased
@@ -23,12 +23,12 @@ func add(value: float) -> void:
 		current = maximum
 		full.emit()
 	
-	changed.emit()
+	modified.emit()
 	gained.emit()
 	
 func remove(value: float) -> void:
 	current -= value
-	changed.emit()
+	modified.emit()
 	lost.emit()
 	
 	if current <= minimum:

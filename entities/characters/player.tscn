@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://dm04qvosp5tu0"]
 
 [ext_resource type="Script" uid="uid://d25ilwfuqta5h" path="res://entities/characters/player.gd" id="1_3eadt"]
+[ext_resource type="Resource" uid="uid://5spkav7akvnv" path="res://resources/entities/player/player_stats.tres" id="2_b0wws"]
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://entities/characters/happy_boo/happy_boo.tscn" id="2_tory2"]
 [ext_resource type="PackedScene" uid="uid://cjt2pljcy5v4f" path="res://scripts/mechanics/Weapon.tscn" id="3_tory2"]
-[ext_resource type="PackedScene" uid="uid://ctxgmkp6pw7jw" path="res://scripts/custom_signals/quantity/quantity.tscn" id="4_x0jl3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
 radius = 4.34614
@@ -26,8 +26,10 @@ corner_radius_bottom_left = 8
 process_mode = 3
 z_index = 10
 collision_mask = 3
+motion_mode = 1
 slide_on_ceiling = false
 script = ExtResource("1_3eadt")
+stats = ExtResource("2_b0wws")
 
 [node name="HappyBoo" parent="." instance=ExtResource("2_tory2")]
 unique_name_in_owner = true
@@ -67,21 +69,3 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_x0jl3")
 value = 100.0
 fill_mode = 3
 show_percentage = false
-
-[node name="Health" parent="." instance=ExtResource("4_x0jl3")]
-unique_name_in_owner = true
-maximum = 20.0
-current = 20.0
-
-[node name="MovementSpeed" parent="." instance=ExtResource("4_x0jl3")]
-unique_name_in_owner = true
-maximum = 1000.0
-current = 200.0
-
-[node name="Experience" parent="." instance=ExtResource("4_x0jl3")]
-unique_name_in_owner = true
-maximum = 2.0
-
-[connection signal="changed" from="Health" to="." method="_on_health_changed"]
-[connection signal="none_left" from="Health" to="." method="_on_health_none_left"]
-[connection signal="full" from="Experience" to="." method="_on_experience_full"]

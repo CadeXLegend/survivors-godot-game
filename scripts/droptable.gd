@@ -1,19 +1,18 @@
 class_name Droptable
-extends Node2D
+extends Resource
 
 @export var drops: Array[PackedScene]
-@onready var currentScene = get_tree().current_scene
 
-func drop_at(target: Vector2):
+func drop(parent: Node2D):
 	for loot in drops:
-		game_state_responder.spawn(loot).as_child_of(currentScene).at(target).create()
+		game_state_responder.spawn(loot).as_child_of(parent).create()
 
-func drop_onto(target: Node2D):
+func drop_at(position: Vector2, parent: Node2D):
 	for loot in drops:
-		game_state_responder.spawn(loot).as_child_of(target).create()
+		game_state_responder.spawn(loot).as_child_of(parent).at(position).create()
 
-func drop_chosen_onto(target: Node2D, chosen: int):
-		game_state_responder.spawn(drops[chosen]).as_child_of(target).create()
+func drop_chosen(chosen: int, parent: Node2D):
+		game_state_responder.spawn(drops[chosen]).as_child_of(parent).create()
 
-func drop_chosen_at(target: Vector2, chosen: int):
-		game_state_responder.spawn(drops[chosen]).as_child_of(currentScene).at(target).create()
+func drop_chosen_at(position: Vector2, chosen: int, parent: Node2D):
+		game_state_responder.spawn(drops[chosen]).as_child_of(parent).at(position).create()

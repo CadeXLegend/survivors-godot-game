@@ -1,5 +1,5 @@
 class_name QuantityVector2
-extends Node2D
+extends Resource
 
 # these are arbitrary defaults to be set in the inspector
 @export var minimum: Vector2 = Vector2.ZERO
@@ -9,7 +9,7 @@ extends Node2D
 # these are the core events correlated to any given quantity
 signal gained
 signal lost
-signal changed
+signal modified
 signal none_left
 signal full
 signal maximum_increased
@@ -23,12 +23,12 @@ func add(value: Vector2) -> void:
 		current = maximum
 		full.emit()
 	
-	changed.emit()
+	modified.emit()
 	gained.emit()
 	
 func remove(value: Vector2) -> void:
 	current -= value
-	changed.emit()
+	modified.emit()
 	lost.emit()
 	
 	if current.length_squared() <= minimum.length_squared():

@@ -1,10 +1,8 @@
 class_name CirclingOrb
 extends Node2D
 
-@onready var damager: Damager = %Damager
-@onready var damage: Quantity = %Damage
-@onready var movementSpeed: Quantity = %MovementSpeed
-@onready var knockbackStrength: Quantity = %KnockbackStrength
+@export var stats: Stats
+
 @onready var pivot: Marker2D = %Pivot
 @onready var orb1: Node2D = %Orb1
 @onready var orb2: Node2D = %Orb2
@@ -25,12 +23,12 @@ extends Node2D
 	#orb4.visible = false
 	
 func _physics_process(delta: float) -> void:
-	pivot.rotate(PI * delta * movementSpeed.current)
+	pivot.rotate(PI * delta * stats.movementSpeed.current)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:	
 	if body is Slime:
 		var collision_point = body.global_position
 		var direction = global_position.direction_to(collision_point)
-		var explosion_force = direction * knockbackStrength.current
-		body.knockback.set_to(explosion_force)
-		damager.deal_damage(body.health, damage.current)
+		var explosion_force = direction * stats.knockbackStrength.current
+		body.stats.knockback.set_to(explosion_force)
+		stats.damager.deal_damage(stats.damage.current, body)
