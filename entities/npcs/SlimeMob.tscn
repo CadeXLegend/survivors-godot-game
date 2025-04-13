@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://entities/characters/slime/slime.tscn" id="2_gw1rl"]
 [ext_resource type="PackedScene" uid="uid://ctxgmkp6pw7jw" path="res://scripts/custom_signals/quantity/quantity.tscn" id="3_kw8gh"]
 [ext_resource type="PackedScene" uid="uid://cxchsupmyuitq" path="res://scripts/droptable.tscn" id="4_1jlmq"]
-[ext_resource type="PackedScene" uid="uid://bc8tivare5ydy" path="res://drops/coin/coin.tscn" id="5_2wbsc"]
+[ext_resource type="PackedScene" path="res://drops/coin/coin.tscn" id="5_2wbsc"]
 [ext_resource type="PackedScene" uid="uid://dhmhmrth6rdce" path="res://assets/smoke_explosion/smoke_explosion.tscn" id="6_7m1mj"]
 [ext_resource type="Script" uid="uid://clw46v0amc8qr" path="res://scripts/custom_signals/quantity/quantityVector2.gd" id="7_gw1rl"]
 

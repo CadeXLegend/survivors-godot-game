@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dm04qvosp5tu0"]
+[gd_scene load_steps=8 format=3 uid="uid://dm04qvosp5tu0"]
 
 [ext_resource type="Script" uid="uid://d25ilwfuqta5h" path="res://entities/characters/player.gd" id="1_3eadt"]
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://entities/characters/happy_boo/happy_boo.tscn" id="2_tory2"]
 [ext_resource type="PackedScene" uid="uid://cjt2pljcy5v4f" path="res://scripts/mechanics/Weapon.tscn" id="3_tory2"]
 [ext_resource type="PackedScene" uid="uid://ctxgmkp6pw7jw" path="res://scripts/custom_signals/quantity/quantity.tscn" id="4_x0jl3"]
-[ext_resource type="PackedScene" uid="uid://dycdu6qnqpnm3" path="res://scripts/mechanics/circling_orb/circling_orb.tscn" id="5_b0wws"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
 radius = 4.34614
@@ -82,8 +81,6 @@ current = 200.0
 [node name="Experience" parent="." instance=ExtResource("4_x0jl3")]
 unique_name_in_owner = true
 maximum = 2.0
-
-[node name="CirclingOrb" parent="." instance=ExtResource("5_b0wws")]
 
 [connection signal="changed" from="Health" to="." method="_on_health_changed"]
 [connection signal="none_left" from="Health" to="." method="_on_health_none_left"]

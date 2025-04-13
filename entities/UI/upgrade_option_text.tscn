@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://d0iurveqtwmm0"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -72.0
+offset_top = -72.0
+offset_right = 72.0
+offset_bottom = 192.0
+
+[node name="Title" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 144.0
+offset_bottom = 46.0
+size_flags_vertical = 4
+text = "Name of the Ability or Upgrade"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_top = 72.0
+offset_right = 144.0
+offset_bottom = 256.0
+size_flags_vertical = 4
+text = "Describe what the ability is, what it does, or what upgrade this is"
+fit_content = true
+horizontal_alignment = 1

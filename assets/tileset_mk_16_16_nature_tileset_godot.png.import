@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u4qe7phup2lo"
-path="res://.godot/imported/coins-chests-etc-2-0-noborders.png-d95ebf2704241a285402aac31fd161b2.ctex"
+uid="uid://ce7qh4i2ak104"
+path="res://.godot/imported/tileset_mk_16_16_nature_tileset_godot.png-29ad1676c73a71c01ac305e29cfe1429.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://drops/coins-chests-etc-2-0-noborders.png"
-dest_files=["res://.godot/imported/coins-chests-etc-2-0-noborders.png-d95ebf2704241a285402aac31fd161b2.ctex"]
+source_file="res://assets/tileset_mk_16_16_nature_tileset_godot.png"
+dest_files=["res://.godot/imported/tileset_mk_16_16_nature_tileset_godot.png-29ad1676c73a71c01ac305e29cfe1429.ctex"]
 
 [params]
 

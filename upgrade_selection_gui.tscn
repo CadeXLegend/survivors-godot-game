@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp6e6yv8qmt1"]
+
+[ext_resource type="PackedScene" uid="uid://cdt6nmlaxwuwl" path="res://entities/UI/upgrade_option_diagetic.tscn" id="1_hrk1p"]
+[ext_resource type="Script" uid="uid://8gy4h3t4gyl6" path="res://upgrade_selection_gui.gd" id="1_sh5kw"]
+
+[node name="Upgrade_Selection_GUI" type="Node2D"]
+script = ExtResource("1_sh5kw")
+
+[node name="Option1" parent="." instance=ExtResource("1_hrk1p")]
+position = Vector2(-192, 0)
+
+[node name="Option2" parent="." instance=ExtResource("1_hrk1p")]
+
+[node name="Option3" parent="." instance=ExtResource("1_hrk1p")]
+position = Vector2(192, 0)
+
+[connection signal="body_entered" from="Option1" to="." method="_on_option_1_body_entered"]
+[connection signal="body_entered" from="Option2" to="." method="_on_option_2_body_entered"]
+[connection signal="body_entered" from="Option3" to="." method="_on_option_3_body_entered"]
