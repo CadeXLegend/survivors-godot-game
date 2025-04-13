@@ -1,17 +1,15 @@
 extends Node2D
 
-@onready var gameEventsEmitter: GameEventsEmitter = get_tree().get_first_node_in_group("GameEvents")
 @onready var player: Player = get_tree().get_first_node_in_group("Players")
 
 @export var abilitiesDroptable: Droptable
 
-var gameStateResponder: GameStateResponder = GameStateResponder.new()
 var inOption1: bool = false
 var inOption2: bool = false
 var inOption3: bool = false
 
 func _ready():
-	gameEventsEmitter.game_unpaused.connect(func(): queue_free())
+	game_events_emitter.game_unpaused.connect(func(): queue_free())
 	
 func _physics_process(_delta: float) -> void:
 	if inOption1 || inOption2 || inOption3:
@@ -20,7 +18,7 @@ func _physics_process(_delta: float) -> void:
 func choose_option():
 	if Input.is_action_pressed("interact"):
 		abilitiesDroptable.drop_chosen(0, player)
-		gameEventsEmitter.unpause_game()
+		game_events_emitter.unpause_game()
 
 func _on_option_1_body_entered(_body: Node2D) -> void:
 	inOption1 = true

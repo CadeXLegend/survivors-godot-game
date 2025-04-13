@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjt2pljcy5v4f"]
+[gd_scene load_steps=5 format=3 uid="uid://cjt2pljcy5v4f"]
 
 [ext_resource type="Texture2D" uid="uid://cswb5do8rrj7q" path="res://assets/pistol/pistol.png" id="1_2og4f"]
 [ext_resource type="Script" uid="uid://bvmxb8x2s4ks5" path="res://scripts/mechanics/gun.gd" id="1_jkvh0"]
+[ext_resource type="PackedScene" uid="uid://02ofuav00md7" path="res://scripts/mechanics/Bullet.tscn" id="2_y8h3o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jkvh0"]
 radius = 275.879
@@ -11,6 +12,7 @@ z_index = 1
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_jkvh0")
+bullet = ExtResource("2_y8h3o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_jkvh0")

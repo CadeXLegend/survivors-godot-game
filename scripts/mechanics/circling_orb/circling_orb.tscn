@@ -31,7 +31,7 @@ unique_name_in_owner = true
 
 [node name="Orb1" type="Node2D" parent="Pivot"]
 unique_name_in_owner = true
-position = Vector2(64, 0)
+position = Vector2(94, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot/Orb1"]
 sprite_frames = SubResource("SpriteFrames_fd1a6")
@@ -44,7 +44,7 @@ shape = SubResource("CircleShape2D_pre3g")
 
 [node name="Orb2" type="Node2D" parent="Pivot"]
 unique_name_in_owner = true
-position = Vector2(-64, 0)
+position = Vector2(-94, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot/Orb2"]
 sprite_frames = SubResource("SpriteFrames_fd1a6")
@@ -57,7 +57,7 @@ shape = SubResource("CircleShape2D_pre3g")
 
 [node name="Orb3" type="Node2D" parent="Pivot"]
 unique_name_in_owner = true
-position = Vector2(0, 64)
+position = Vector2(0, 94)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot/Orb3"]
 sprite_frames = SubResource("SpriteFrames_fd1a6")
@@ -70,7 +70,7 @@ shape = SubResource("CircleShape2D_pre3g")
 
 [node name="Orb4" type="Node2D" parent="Pivot"]
 unique_name_in_owner = true
-position = Vector2(0, -64)
+position = Vector2(0, -94)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot/Orb4"]
 sprite_frames = SubResource("SpriteFrames_fd1a6")

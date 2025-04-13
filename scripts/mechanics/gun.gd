@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var marker: Marker2D = %ShootingPoint
-@onready var bullet = preload("res://scripts/mechanics/Bullet.tscn")
+@export var bullet: PackedScene
 var enemiesInRange = []
 
 func _physics_process(_delta: float) -> void:

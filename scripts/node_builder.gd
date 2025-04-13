@@ -14,7 +14,7 @@ func with_rotation(rotation: float) -> NodeBuilder:
 	return self
 
 func as_child_of(parent: Node2D) -> NodeBuilder:
-	parent.call_deferred("add_child", node)
+	parent.add_child.call_deferred(node)
 	return self
 
 func in_group(group: String) -> NodeBuilder:

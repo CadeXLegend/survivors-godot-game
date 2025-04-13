@@ -17,8 +17,11 @@ extends Resource
 
 @export var secondPropertyToAnimate: String = "scale"
 
-func display_number(value: float, position: Vector2, sceneRoot: Node, isCritical: bool = false):
-	var number = Label.new()
+func display_number(value: float, position: Vector2, receiver: Node2D, isCritical: bool = false):
+	var node: Node2D = Node2D.new()
+	var sceneRoot: Node2D = receiver.get_tree().current_scene
+	var number: Label = Label.new()
+	node.add_child(number)
 	number.global_position = position + Vector2.DOWN
 	number.text = str(value as int)
 	number.z_index = 128
@@ -28,7 +31,9 @@ func display_number(value: float, position: Vector2, sceneRoot: Node, isCritical
 
 	number.label_settings = labelSettings
 	
-	sceneRoot.call_deferred("add_child", number)
+	sceneRoot.add_child.call_deferred(node)
+	game_events_emitter.game_paused.connect(func(): game_state_responder.disable_self_and_physics(node))
+	game_events_emitter.game_unpaused.connect(func(): game_state_responder.enable_self_and_physics(node))
 	
 	await number.resized
 	number.pivot_offset = Vector2(number.size / 2)

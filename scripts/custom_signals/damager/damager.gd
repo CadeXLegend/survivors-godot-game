@@ -12,5 +12,5 @@ func deal_damage(amount: float, receiver: Node2D) -> void:
 	game_state_responder.damageNumbers.display_number(
 		amount, 
 		receiver.global_position, 
-		receiver.get_tree().current_scene)
+		receiver)
 	post_damage_step.emit()

@@ -81,6 +81,7 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 [autoload]
 
 game_state_responder="*res://scripts/game_state_responder.tscn"
+game_events_emitter="*res://scripts/game_events_emitter.tscn"
 
 [display]
 

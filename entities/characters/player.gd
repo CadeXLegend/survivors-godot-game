@@ -10,8 +10,6 @@ extends CharacterBody2D
 @onready var hitbox = %Hitbox
 @onready var healthBar = %HealthBar
 
-@onready var gameEventsEmitter: GameEventsEmitter = %GameEventsEmitter
-
 func _ready():
 	stats = stats.duplicate(true)
 	stats.health.none_left.connect(on_health_none_left)
@@ -38,13 +36,13 @@ func _physics_process(delta: float) -> void:
 	var amountOfMobsHittingPlayer: int = overlappingMobs.size() if overlappingMobs else 0
 	
 	if amountOfMobsHittingPlayer > 0:
-		stats.damager.deal_damage(damageRate * amountOfMobsHittingPlayer * delta, self)
+		stats.damager.deal_damage(damageRate * amountOfMobsHittingPlayer, self)
 
 func on_experience_full() -> void:
 	stats.level.add(1)
 	stats.xp.remove(stats.xp.maximum)
 	stats.xp.increase_max(stats.level.current * 100 * 1.25)
-	gameEventsEmitter.pause_game()
+	game_events_emitter.pause_game()
 
 func on_health_none_left() -> void:
 	animationController.play_death_animation()
