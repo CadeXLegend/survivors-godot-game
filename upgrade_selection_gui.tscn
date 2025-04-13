@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://8gy4h3t4gyl6" path="res://upgrade_selection_gui.gd" id="1_sh5kw"]
 
 [node name="Upgrade_Selection_GUI" type="Node2D"]
+process_mode = 2
 script = ExtResource("1_sh5kw")
 
 [node name="Option1" parent="." instance=ExtResource("1_hrk1p")]
@@ -15,5 +16,8 @@ position = Vector2(-192, 0)
 position = Vector2(192, 0)
 
 [connection signal="body_entered" from="Option1" to="." method="_on_option_1_body_entered"]
+[connection signal="body_exited" from="Option1" to="." method="_on_option_1_body_exited"]
 [connection signal="body_entered" from="Option2" to="." method="_on_option_2_body_entered"]
+[connection signal="body_exited" from="Option2" to="." method="_on_option_2_body_exited"]
 [connection signal="body_entered" from="Option3" to="." method="_on_option_3_body_entered"]
+[connection signal="body_exited" from="Option3" to="." method="_on_option_3_body_exited"]

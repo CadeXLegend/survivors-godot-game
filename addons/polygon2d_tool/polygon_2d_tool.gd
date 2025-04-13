@@ -1,6 +1,6 @@
 @icon("icon.svg")
 @tool
-class_name PolygonTool
+class_name PolygonTool2D
 extends Node2D
 
 ## Only works with Polygon2D, CollisionPolygon2D, LightOccluder2D

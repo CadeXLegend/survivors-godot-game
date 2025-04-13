@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://entities/characters/slime/slime.tscn" id="2_gw1rl"]
 [ext_resource type="PackedScene" uid="uid://ctxgmkp6pw7jw" path="res://scripts/custom_signals/quantity/quantity.tscn" id="3_kw8gh"]
 [ext_resource type="PackedScene" uid="uid://cxchsupmyuitq" path="res://scripts/droptable.tscn" id="4_1jlmq"]
-[ext_resource type="PackedScene" path="res://drops/coin/coin.tscn" id="5_2wbsc"]
+[ext_resource type="PackedScene" uid="uid://bc8tivare5ydy" path="res://scripts/mechanics/drops/coin/coin.tscn" id="5_2wbsc"]
 [ext_resource type="PackedScene" uid="uid://dhmhmrth6rdce" path="res://assets/smoke_explosion/smoke_explosion.tscn" id="6_7m1mj"]
 [ext_resource type="Script" uid="uid://clw46v0amc8qr" path="res://scripts/custom_signals/quantity/quantityVector2.gd" id="7_gw1rl"]
 
@@ -15,6 +15,7 @@ radius = 53.0094
 scale = Vector2(0.271429, 0.271429)
 collision_layer = 2
 collision_mask = 3
+motion_mode = 1
 script = ExtResource("1_yyvdd")
 
 [node name="Slime" parent="." instance=ExtResource("2_gw1rl")]
@@ -27,8 +28,8 @@ shape = SubResource("CircleShape2D_2d52u")
 
 [node name="Health" parent="." instance=ExtResource("3_kw8gh")]
 unique_name_in_owner = true
-maximum = 10.0
-current = 10.0
+maximum = 5.0
+current = 5.0
 
 [node name="MovementSpeed" parent="." instance=ExtResource("3_kw8gh")]
 unique_name_in_owner = true

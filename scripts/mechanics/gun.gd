@@ -12,11 +12,11 @@ func _physics_process(_delta: float) -> void:
 		look_at(targetEnemy.global_position)
 
 func shoot():
-	var newBullet = bullet.instantiate()
-	newBullet.global_position = marker.global_position
-	newBullet.global_rotation = marker.global_rotation
-	marker.add_child(newBullet)
-
+	game_state_responder.spawn(bullet) \
+						.as_child_of(marker) \
+						.at(marker.global_position) \
+						.with_rotation(marker.global_rotation) \
+						.create()
 
 func _on_timer_timeout() -> void:
 	if enemiesInRange.size() > 0:

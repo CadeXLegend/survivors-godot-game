@@ -1,13 +1,12 @@
 extends Node2D
 
 @onready var spawnPath: PathFollow2D = %OutOfViewSpawnPath
-@onready var mob = preload("res://entities/npcs/SlimeMob.tscn")
+@export var mob: PackedScene
+@onready var currentScene = get_tree().current_scene
 
 func spawn_mob():
-	var node = mob.instantiate()
 	spawnPath.progress_ratio = randf()
-	node.global_position = spawnPath.global_position
-	get_parent().add_child(node)
+	game_state_responder.spawn(mob).at(spawnPath.global_position).as_child_of(currentScene).create()
 
 func _on_timer_timeout() -> void:
 	spawn_mob()

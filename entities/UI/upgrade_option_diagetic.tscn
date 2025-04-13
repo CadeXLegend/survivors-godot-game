@@ -577,8 +577,10 @@ texture = ExtResource("1_mqary")
 sources/0 = SubResource("TileSetAtlasSource_hrk1p")
 
 [node name="Option" type="Area2D"]
+process_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+process_mode = 2
 position = Vector2(-0.5, 64)
 shape = SubResource("RectangleShape2D_01drw")
 
@@ -610,17 +612,15 @@ region_enabled = true
 region_rect = Rect2(192, 192, 16, 16)
 region_filter_clip_enabled = true
 
-[node name="PolygonTool" type="Node2D" parent="Graphics" node_paths=PackedStringArray("target")]
+[node name="PolygonTool" type="Node2D" parent="Graphics"]
 script = ExtResource("4_1mgr1")
-target = [NodePath("../Polygon2D")]
 size = Vector2(32, 32)
 sides = 4
 internal_margin = 80.0
 metadata/_custom_type_script = "uid://bd6ou7yl33fbn"
 
-[node name="PolygonTool2" type="Node2D" parent="Graphics" node_paths=PackedStringArray("target")]
+[node name="PolygonTool2" type="Node2D" parent="Graphics"]
 script = ExtResource("4_1mgr1")
-target = [NodePath("../Polygon2D/Polygon2D")]
 size = Vector2(32, 32)
 sides = 4
 metadata/_custom_type_script = "uid://bd6ou7yl33fbn"

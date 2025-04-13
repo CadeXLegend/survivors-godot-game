@@ -32,4 +32,4 @@ func _on_health_lost() -> void:
 
 func _on_health_none_left() -> void:
 		queue_free()
-		droptable.drop()
+		droptable.drop_at(global_position)

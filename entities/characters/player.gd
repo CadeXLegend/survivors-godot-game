@@ -41,7 +41,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_experience_full() -> void:
 	level += 1
-	movementSpeed.add(200)
 	xp.remove(xp.maximum)
 	xp.increase_max(level * 100 * 1.25)
 	gameEventsEmitter.pause_game()
