@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bc8tivare5ydy"]
 
-[ext_resource type="Texture2D" uid="uid://u4qe7phup2lo" path="res://drops/coins-chests-etc-2-0-noborders.png" id="1_d5gmh"]
-[ext_resource type="Script" uid="uid://vp4qttji5077" path="res://drops/coin/coin.gd" id="2_0t63x"]
+[ext_resource type="Texture2D" uid="uid://u4qe7phup2lo" path="res://assets/coins-chests-etc-2-0-noborders.png" id="1_d5gmh"]
+[ext_resource type="Script" uid="uid://vp4qttji5077" path="res://scripts/mechanics/drops/coin/coin.gd" id="2_0t63x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v7riw"]
 atlas = ExtResource("1_d5gmh")
@@ -67,7 +67,7 @@ animations = [{
 
 [node name="Coin" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_v1mwu")
-frame_progress = 0.988369
+frame_progress = 0.664556
 speed_scale = 2.0
 script = ExtResource("2_0t63x")
 

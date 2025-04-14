@@ -3,6 +3,10 @@ extends Node2D
 
 signal game_paused
 signal game_unpaused
+signal magnet_picked_up
+
+func emit_magnet_picked_up():
+	magnet_picked_up.emit()
 
 func pause_game():
 		game_paused.emit()

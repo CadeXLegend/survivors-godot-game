@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://bd6ou7yl33fbn" path="res://addons/polygon2d_tool/polygon_2d_tool.gd" id="5_b0wws"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
-radius = 4.34614
+radius = 6.66667
 
 [sub_resource type="SystemFont" id="SystemFont_b0wws"]
 
@@ -150,6 +150,7 @@ internal_vertex_count = 4
 [node name="HealthBar" type="ProgressBar" parent="LocalisedPlayerUI"]
 unique_name_in_owner = true
 z_index = 1002
+layout_mode = 0
 offset_left = -30.0
 offset_top = -63.0
 offset_right = 30.0
@@ -162,6 +163,7 @@ show_percentage = false
 [node name="XPBar" type="ProgressBar" parent="LocalisedPlayerUI"]
 unique_name_in_owner = true
 z_index = 1002
+layout_mode = 0
 offset_left = -30.0
 offset_top = -54.0
 offset_right = 30.0

@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 @export var directions: Array = ["move_left", "move_right", "move_up", "move_down"]
-@export var damageRate: float = 5.0
+@export var damageRate: float = 1.0
 
 @export var stats: Stats
 
@@ -19,7 +19,7 @@ func _ready():
 	stats.xp.full.connect(on_experience_full)
 	stats.xp.maximum_increased.connect(func(): xpBar.max_value = stats.xp.maximum)
 	stats.xp.modified.connect(update_xp_bar)
-	stats.level.modified.connect(func(): levelLabel.text = str(stats.level.current as int))
+	stats.level.gained.connect(func(): levelLabel.text = str(stats.level.current as int))
 	xpBar.value = stats.xp.current
 	xpBar.min_value = stats.xp.minimum
 	xpBar.max_value = stats.xp.maximum
@@ -33,6 +33,13 @@ func _physics_process(delta: float) -> void:
 	if stats.health.current <= stats.health.minimum:
 		return
 	
+	var overlappingMobs = hitbox.get_overlapping_bodies()
+	var amountOfMobsHittingPlayer: int = overlappingMobs.size() if overlappingMobs else 0
+	
+	if amountOfMobsHittingPlayer > 0:
+		for mob in overlappingMobs:
+			stats.damager.deal_damage(mob.stats.damage.current, self)
+	
 	var movementDirection = Input.get_vector(directions[0], directions[1], directions[2], directions[3])
 	velocity = movementDirection * stats.movementSpeed.current
 	move_and_slide()
@@ -42,12 +49,6 @@ func _physics_process(delta: float) -> void:
 		animationController.play_walk_animation()
 	else:
 		animationController.play_idle_animation()
-		
-	var overlappingMobs = hitbox.get_overlapping_bodies()
-	var amountOfMobsHittingPlayer: int = overlappingMobs.size() if overlappingMobs else 0
-	
-	if amountOfMobsHittingPlayer > 0:
-		stats.damager.deal_damage(damageRate * amountOfMobsHittingPlayer, self)
 
 func on_experience_full() -> void:
 	stats.level.add(1)

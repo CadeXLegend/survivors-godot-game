@@ -10,4 +10,3 @@ extends Resource
 @export var knockback: QuantityVector2
 @export var knockbackStrength: Quantity
 @export var radius: Quantity
-@export var orbsCount: Quantity

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://rcgjxbmdi6r8"]
+
+[ext_resource type="Texture2D" uid="uid://u4qe7phup2lo" path="res://assets/coins-chests-etc-2-0-noborders.png" id="1_l01e2"]
+[ext_resource type="Script" uid="uid://dghw85h2tofg2" path="res://scripts/mechanics/drops/magnet/magnet.gd" id="2_4cytn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cytn"]
+atlas = ExtResource("1_l01e2")
+region = Rect2(464, 576, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v1mwu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cytn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0t63x"]
+
+[node name="magnet" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_v1mwu")
+frame_progress = 0.306952
+speed_scale = 2.0
+script = ExtResource("2_4cytn")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_0t63x")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

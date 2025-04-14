@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @export var stats: Stats
 @export var droptable: Droptable
+@export var hitSFX: AudioStreamPlayer2D
 
 @onready var animationController = %Slime
 @onready var player = get_tree().get_first_node_in_group("Players")
@@ -26,6 +27,7 @@ func _physics_process(delta: float) -> void:
 
 func on_health_lost() -> void:
 	animationController.play_hurt()
+	hitSFX.play()
 
 func on_health_none_left() -> void:
 		queue_free()

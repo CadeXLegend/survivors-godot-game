@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqvnu14v3eedw"]
+[gd_scene load_steps=11 format=3 uid="uid://bqvnu14v3eedw"]
 
 [ext_resource type="Script" uid="uid://drutbb2c6j31l" path="res://addons/post_processing/node/post_process.gd" id="1_5mrb7"]
 [ext_resource type="PackedScene" uid="uid://dm04qvosp5tu0" path="res://entities/characters/player.tscn" id="1_wkcnj"]
 [ext_resource type="Script" uid="uid://xpl2g0vdmp2v" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="2_i54c3"]
 [ext_resource type="PackedScene" uid="uid://viljvnxa1xn3" path="res://scripts/mechanics/spawning/mob_spawner.tscn" id="3_kbdm8"]
 [ext_resource type="PackedScene" uid="uid://fwh08w4uiktb" path="res://entities/npcs/SlimeMob.tscn" id="6_ee6eb"]
+[ext_resource type="PackedScene" uid="uid://rcgjxbmdi6r8" path="res://scripts/mechanics/drops/magnet/magnet.tscn" id="8_bwn4j"]
 [ext_resource type="Script" uid="uid://mb2laaa8fwvc" path="res://scripts/spawn_on_game_paused.gd" id="9_2sip7"]
 [ext_resource type="Resource" uid="uid://4ty645lf7p8r" path="res://resources/upgrade_selection_gui_droptable.tres" id="10_w2f7m"]
 
@@ -139,3 +140,6 @@ mob = ExtResource("6_ee6eb")
 [node name="SpawnOnGamePaused" type="Node2D" parent="."]
 script = ExtResource("9_2sip7")
 droptable = ExtResource("10_w2f7m")
+
+[node name="magnet" parent="." instance=ExtResource("8_bwn4j")]
+position = Vector2(366, -102)
