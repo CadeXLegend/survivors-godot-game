@@ -12,8 +12,8 @@ metadata/_custom_type_script = "uid://dphokgvjqmpke"
 [sub_resource type="Resource" id="Resource_yowss"]
 script = ExtResource("1_8e5ln")
 minimum = 0.0
-maximum = 20.0
-current = 20.0
+maximum = 100.0
+current = 100.0
 metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
 
 [sub_resource type="Resource" id="Resource_i44p6"]

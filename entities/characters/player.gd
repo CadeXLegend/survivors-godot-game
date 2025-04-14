@@ -6,17 +6,28 @@ extends CharacterBody2D
 
 @export var stats: Stats
 
-@onready var animationController = %HappyBoo
-@onready var hitbox = %Hitbox
-@onready var healthBar = %HealthBar
+@onready var animationController: Node2D = %HappyBoo
+@onready var hitbox: Area2D = %Hitbox
+@onready var healthBar: ProgressBar = %HealthBar
+@onready var xpBar: ProgressBar = %XPBar
+@onready var levelLabel: Label = %LevelLabel
 
 func _ready():
 	stats = stats.duplicate(true)
 	stats.health.none_left.connect(on_health_none_left)
 	stats.health.modified.connect(on_health_changed)
 	stats.xp.full.connect(on_experience_full)
+	stats.xp.maximum_increased.connect(func(): xpBar.max_value = stats.xp.maximum)
+	stats.xp.modified.connect(update_xp_bar)
+	stats.level.modified.connect(func(): levelLabel.text = str(stats.level.current as int))
+	xpBar.value = stats.xp.current
+	xpBar.min_value = stats.xp.minimum
+	xpBar.max_value = stats.xp.maximum
 	healthBar.min_value = stats.health.minimum
 	healthBar.max_value = stats.health.maximum
+	stats.health.maximum_decreased.connect(func(): healthBar.max_value = stats.health.maximum)
+	stats.health.maximum_increased.connect(func(): healthBar.max_value = stats.health.maximum)
+	game_events_emitter.game_unpaused.connect(on_unpause_after_lvl_up)
 
 func _physics_process(delta: float) -> void:
 	if stats.health.current <= stats.health.minimum:
@@ -40,12 +51,20 @@ func _physics_process(delta: float) -> void:
 
 func on_experience_full() -> void:
 	stats.level.add(1)
-	stats.xp.remove(stats.xp.maximum)
-	stats.xp.increase_max(stats.level.current * 100 * 1.25)
+	stats.health.set_to(stats.health.maximum)
 	game_events_emitter.pause_game()
+
+func on_unpause_after_lvl_up():
+	stats.xp.increase_max(stats.level.current * 100 * 1.25)
+	stats.xp.remove(stats.xp.maximum)
 
 func on_health_none_left() -> void:
 	animationController.play_death_animation()
+	await get_tree().create_timer(1).timeout
+	get_tree().reload_current_scene()
 
 func on_health_changed() -> void:
 	healthBar.value = stats.health.current
+	
+func update_xp_bar():
+	xpBar.value = stats.xp.current

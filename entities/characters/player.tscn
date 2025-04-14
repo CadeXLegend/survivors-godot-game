@@ -1,26 +1,45 @@
-[gd_scene load_steps=8 format=3 uid="uid://dm04qvosp5tu0"]
+[gd_scene load_steps=16 format=3 uid="uid://dm04qvosp5tu0"]
 
 [ext_resource type="Script" uid="uid://d25ilwfuqta5h" path="res://entities/characters/player.gd" id="1_3eadt"]
 [ext_resource type="Resource" uid="uid://5spkav7akvnv" path="res://resources/entities/player/player_stats.tres" id="2_b0wws"]
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://entities/characters/happy_boo/happy_boo.tscn" id="2_tory2"]
 [ext_resource type="PackedScene" uid="uid://cjt2pljcy5v4f" path="res://scripts/mechanics/Weapon.tscn" id="3_tory2"]
+[ext_resource type="Script" uid="uid://bd6ou7yl33fbn" path="res://addons/polygon2d_tool/polygon_2d_tool.gd" id="5_b0wws"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
 radius = 4.34614
 
+[sub_resource type="SystemFont" id="SystemFont_b0wws"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b0wws"]
+font = SubResource("SystemFont_b0wws")
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tory2"]
 bg_color = Color(0.152941, 0.168627, 0.188235, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+border_color = Color(0.796078, 0.631373, 0.109804, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0jl3"]
-bg_color = Color(0.0823529, 0.34902, 0.247059, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[sub_resource type="Gradient" id="Gradient_b0wws"]
+colors = PackedColorArray(0, 0.32549, 0, 1, 7.89344e-06, 0.730016, 7.70092e-07, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_udy2f"]
+gradient = SubResource("Gradient_b0wws")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bywx5"]
+texture = SubResource("GradientTexture2D_udy2f")
+
+[sub_resource type="Gradient" id="Gradient_1pe53"]
+colors = PackedColorArray(1, 0, 1, 1, 0.30179, 0.10242, 0.30175, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b0wws"]
+gradient = SubResource("Gradient_1pe53")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_udy2f"]
+texture = SubResource("GradientTexture2D_b0wws")
 
 [node name="Player" type="CharacterBody2D"]
 process_mode = 3
@@ -56,16 +75,98 @@ scale = Vector2(3, 3)
 shape = SubResource("CircleShape2D_onrkg")
 debug_color = Color(0.995841, 0, 0.197995, 0.42)
 
-[node name="HealthBar" type="ProgressBar" parent="."]
+[node name="LocalisedPlayerUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Border" type="Polygon2D" parent="LocalisedPlayerUI"]
+z_index = 1000
+position = Vector2(-7.5, -55.5)
+scale = Vector2(1, 1.1)
+color = Color(0.996078, 0.839216, 0, 1)
+polygon = PackedVector2Array(38.0423, 7.63675, -38.0423, 7.63675, -38.0423, -7.63675, 38.0423, -7.63675, 38.0423, 7.63675)
+
+[node name="PolygonTool2D" type="Node2D" parent="LocalisedPlayerUI/Border" node_paths=PackedStringArray("target")]
+position = Vector2(0.47, 0)
+script = ExtResource("5_b0wws")
+target = [NodePath("..")]
+size = Vector2(53.8, 10.8)
+sides = 4
+rotate = 45.0
+metadata/_custom_type_script = "uid://bd6ou7yl33fbn"
+
+[node name="LvlRect" type="Polygon2D" parent="LocalisedPlayerUI"]
+z_index = 1004
+position = Vector2(-37.8, -56)
+color = Color(0.172833, 0.172833, 0.172833, 1)
+polygon = PackedVector2Array(7.07107, 7.00036, -7.07107, 7.00036, -7.07107, -7.00036, 7.07107, -7.00036, 7.07107, 7.00036)
+
+[node name="PolygonTool2D" type="Node2D" parent="LocalisedPlayerUI/LvlRect" node_paths=PackedStringArray("target")]
+position = Vector2(0.47, 0)
+script = ExtResource("5_b0wws")
+target = [NodePath("..")]
+size = Vector2(10, 9.9)
+sides = 4
+rotate = 45.0
+metadata/_custom_type_script = "uid://bd6ou7yl33fbn"
+
+[node name="LevelLabel" type="Label" parent="LocalisedPlayerUI/LvlRect"]
 unique_name_in_owner = true
-visible = false
-z_index = 300
-offset_left = -14.0
-offset_top = -113.0
-offset_right = 15.0
-offset_bottom = -86.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.2
+offset_top = -8.0
+offset_right = 7.8
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.820871, 0.680641)
+text = "0"
+label_settings = SubResource("LabelSettings_b0wws")
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 160
+uppercase = true
+
+[node name="Border2" type="Polygon2D" parent="LocalisedPlayerUI"]
+clip_children = 2
+z_index = 1001
+position = Vector2(-8, -61)
+scale = Vector2(0.262428, -0.0499887)
+color = Color(0.994183, 0.837603, 3.85046e-07, 1)
+polygon = PackedVector2Array(144.801, 40.009, -87.643, 40.009, -87.643, -140.032, 144.801, -140.032, -56, -120, -64.4999, 11.6063, 112, -120, 120, 16)
+uv = PackedVector2Array(71.4996, 50.0005, -117.5, 50.0005, -116.5, -75.9995, 75.4996, -72.9995, -57.4999, -119.394, -64.4999, 11.6063, 112, -120, 120, 16)
+internal_vertex_count = 4
+
+[node name="HealthBar" type="ProgressBar" parent="LocalisedPlayerUI"]
+unique_name_in_owner = true
+z_index = 1002
+offset_left = -30.0
+offset_top = -63.0
+offset_right = 30.0
+offset_bottom = -55.0
 theme_override_styles/background = SubResource("StyleBoxFlat_tory2")
-theme_override_styles/fill = SubResource("StyleBoxFlat_x0jl3")
+theme_override_styles/fill = SubResource("StyleBoxTexture_bywx5")
 value = 100.0
-fill_mode = 3
+show_percentage = false
+
+[node name="XPBar" type="ProgressBar" parent="LocalisedPlayerUI"]
+unique_name_in_owner = true
+z_index = 1002
+offset_left = -30.0
+offset_top = -54.0
+offset_right = 30.0
+offset_bottom = -49.0
+theme_override_styles/background = SubResource("StyleBoxFlat_tory2")
+theme_override_styles/fill = SubResource("StyleBoxTexture_udy2f")
+value = 100.0
 show_percentage = false
