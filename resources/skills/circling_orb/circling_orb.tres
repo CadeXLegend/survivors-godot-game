@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=3 format=3 uid="uid://doyt2h2usy1so"]
+
+[ext_resource type="PackedScene" uid="uid://dycdu6qnqpnm3" path="res://scripts/mechanics/circling_orb/circling_orb.tscn" id="1_mca1b"]
+[ext_resource type="Script" uid="uid://dicioy4mhmm01" path="res://scripts/skill.gd" id="2_q1ofh"]
+
+[resource]
+script = ExtResource("2_q1ofh")
+entity = ExtResource("1_mca1b")
+name = "Circling Orb"
+description = "Orbs circle the player, damaging and knocking back enemies."
+metadata/_custom_type_script = "uid://dicioy4mhmm01"

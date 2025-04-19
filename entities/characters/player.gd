@@ -12,14 +12,17 @@ extends CharacterBody2D
 @onready var xpBar: ProgressBar = %XPBar
 @onready var levelLabel: Label = %LevelLabel
 
+var levelUpQueue: Array[Callable]
+
 func _ready():
 	stats = stats.duplicate(true)
 	stats.health.none_left.connect(on_health_none_left)
 	stats.health.modified.connect(on_health_changed)
+	stats.xp.full.connect(func(): levelUpQueue.push_back(level_up))
 	stats.xp.full.connect(on_experience_full)
 	stats.xp.maximum_increased.connect(func(): xpBar.max_value = stats.xp.maximum)
 	stats.xp.modified.connect(update_xp_bar)
-	stats.level.gained.connect(func(): levelLabel.text = str(stats.level.current as int))
+	stats.level.modified.connect(func(): levelLabel.text = str(stats.level.current as int))
 	xpBar.value = stats.xp.current
 	xpBar.min_value = stats.xp.minimum
 	xpBar.max_value = stats.xp.maximum
@@ -51,13 +54,22 @@ func _physics_process(delta: float) -> void:
 		animationController.play_idle_animation()
 
 func on_experience_full() -> void:
+	if levelUpQueue.size() > 0:
+		if !get_tree().paused:
+			levelUpQueue.pop_back().call()
+			game_events_emitter.pause_game()
+
+func level_up():
 	stats.level.add(1)
 	stats.health.set_to(stats.health.maximum)
-	game_events_emitter.pause_game()
 
 func on_unpause_after_lvl_up():
 	stats.xp.increase_max(stats.level.current * 100 * 1.25)
 	stats.xp.remove(stats.xp.maximum)
+	stats.xp.add_from_overflow()
+	
+	if levelUpQueue.size() > 0:
+		on_experience_full()
 
 func on_health_none_left() -> void:
 	animationController.play_death_animation()

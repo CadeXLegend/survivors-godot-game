@@ -10,6 +10,7 @@
 radius = 6.66667
 
 [sub_resource type="SystemFont" id="SystemFont_b0wws"]
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_b0wws"]
 font = SubResource("SystemFont_b0wws")
@@ -176,8 +177,39 @@ theme_override_styles/fill = SubResource("StyleBoxTexture_udy2f")
 value = 100.0
 show_percentage = false
 
-[node name="TopCollider" type="Area2D" parent="."]
+[node name="BouncerBoundTop" type="StaticBody2D" parent="."]
+collision_layer = 8388608
+collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TopCollider"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BouncerBoundTop"]
 position = Vector2(0, -563.5)
+shape = SubResource("RectangleShape2D_b0wws")
+
+[node name="BouncerBoundBottom" type="StaticBody2D" parent="."]
+position = Vector2(0, 1127)
+collision_layer = 8388608
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BouncerBoundBottom"]
+position = Vector2(0, -563.5)
+shape = SubResource("RectangleShape2D_b0wws")
+
+[node name="BouncerBoundLeft" type="StaticBody2D" parent="."]
+position = Vector2(432, 383)
+rotation = 1.5708
+collision_layer = 8388608
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BouncerBoundLeft"]
+position = Vector2(-376, -553)
+shape = SubResource("RectangleShape2D_b0wws")
+
+[node name="BouncerBoundRight" type="StaticBody2D" parent="."]
+position = Vector2(-1534, 378)
+rotation = 1.5708
+collision_layer = 8388608
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BouncerBoundRight"]
+position = Vector2(-376, -553)
 shape = SubResource("RectangleShape2D_b0wws")

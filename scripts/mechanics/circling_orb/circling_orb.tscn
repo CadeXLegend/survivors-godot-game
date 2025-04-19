@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dycdu6qnqpnm3"]
 
 [ext_resource type="Script" uid="uid://cmw4lpixwe0bc" path="res://scripts/mechanics/circling_orb/circling_orb.gd" id="1_fd1a6"]
-[ext_resource type="Resource" uid="uid://c3n64adan2120" path="res://resources/abilities/circling_orbs.tres" id="2_54h6o"]
+[ext_resource type="Resource" uid="uid://c3n64adan2120" path="res://resources/skills/circling_orb/circling_orbs_stats.tres" id="2_54h6o"]
 [ext_resource type="Texture2D" uid="uid://bjlavjltb3rh4" path="res://assets/Treasure/Treasure.png" id="2_l2vj5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pre3g"]

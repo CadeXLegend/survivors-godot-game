@@ -6,7 +6,11 @@ extends Node2D
 
 func spawn_mob():
 	spawnPath.progress_ratio = randf()
-	game_state_responder.spawn(mob).at(spawnPath.global_position).as_child_of(currentScene).create()
+	game_state_responder.spawn(mob) \
+						.at(spawnPath.global_position) \
+						.as_child_of(currentScene) \
+						.in_group("Mobs") \
+						.create()
 
 func _on_timer_timeout() -> void:
 	spawn_mob()

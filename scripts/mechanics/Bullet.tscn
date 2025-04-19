@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ckl6r6ap02gg4" path="res://scripts/mechanics/bullet.gd" id="1_4s4u5"]
 [ext_resource type="Texture2D" uid="uid://cvmbm3sxj85fm" path="res://assets/smoke_explosion/circle_32.png" id="2_4s4u5"]
-[ext_resource type="Resource" uid="uid://cvcur1qibp73k" path="res://resources/abilities/staff_basic_attack.tres" id="2_tn5wh"]
+[ext_resource type="Resource" uid="uid://cvcur1qibp73k" path="res://resources/skills/staff_basic_attack.tres" id="2_tn5wh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x3e43"]
 radius = 16.0

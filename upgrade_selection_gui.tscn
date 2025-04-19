@@ -2,12 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://cdt6nmlaxwuwl" path="res://entities/UI/upgrade_option_diagetic.tscn" id="1_hrk1p"]
 [ext_resource type="Script" uid="uid://8gy4h3t4gyl6" path="res://upgrade_selection_gui.gd" id="1_sh5kw"]
-[ext_resource type="Resource" uid="uid://c1kor1i6lxq5o" path="res://resources/abilities_droptable.tres" id="2_sh5kw"]
+[ext_resource type="Resource" uid="uid://bu8tkxlqp6xwg" path="res://resources/skill_trees/main_skill_tree.tres" id="2_sh5kw"]
 
-[node name="Upgrade_Selection_GUI" type="Node2D"]
+[node name="Upgrade_Selection_GUI" type="Node2D" node_paths=PackedStringArray("options")]
 process_mode = 2
 script = ExtResource("1_sh5kw")
-abilitiesDroptable = ExtResource("2_sh5kw")
+skills_tree = ExtResource("2_sh5kw")
+options = [NodePath("Option1"), NodePath("Option2"), NodePath("Option3")]
 
 [node name="Option1" parent="." instance=ExtResource("1_hrk1p")]
 position = Vector2(-192, 0)

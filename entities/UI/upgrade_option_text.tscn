@@ -1,12 +1,17 @@
-[gd_scene format=3 uid="uid://d0iurveqtwmm0"]
+[gd_scene load_steps=2 format=3 uid="uid://d0iurveqtwmm0"]
 
-[node name="Control" type="Control"]
+[ext_resource type="Script" uid="uid://ba7o50kk3x8u3" path="res://entities/UI/option_text.gd" id="1_y7u3d"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("title", "description")]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -72.0
 offset_top = -72.0
 offset_right = 72.0
 offset_bottom = 192.0
+script = ExtResource("1_y7u3d")
+title = NodePath("Title")
+description = NodePath("Description")
 
 [node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 0

@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=4 uid="uid://cdt6nmlaxwuwl"]
+[gd_scene load_steps=9 format=4 uid="uid://cdt6nmlaxwuwl"]
 
+[ext_resource type="Script" uid="uid://2624fxdscb1p" path="res://entities/UI/option_gui.gd" id="1_moxxn"]
 [ext_resource type="Texture2D" uid="uid://ce7qh4i2ak104" path="res://assets/tileset_mk_16_16_nature_tileset_godot.png" id="1_mqary"]
 [ext_resource type="PackedScene" uid="uid://d0iurveqtwmm0" path="res://entities/UI/upgrade_option_text.tscn" id="2_yat8g"]
 [ext_resource type="Texture2D" uid="uid://bjlavjltb3rh4" path="res://assets/Treasure/Treasure.png" id="3_yat8g"]
@@ -576,8 +577,10 @@ texture = ExtResource("1_mqary")
 [sub_resource type="TileSet" id="TileSet_sh5kw"]
 sources/0 = SubResource("TileSetAtlasSource_hrk1p")
 
-[node name="Option" type="Area2D"]
+[node name="Option" type="Area2D" node_paths=PackedStringArray("optionText")]
 process_mode = 2
+script = ExtResource("1_moxxn")
+optionText = NodePath("Graphics/Control")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 process_mode = 2
