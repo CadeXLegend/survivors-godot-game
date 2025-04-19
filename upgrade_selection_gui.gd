@@ -1,7 +1,5 @@
 extends Node2D
 
-@onready var player: Player = get_tree().get_first_node_in_group("Players")
-
 @export var abilitiesDroptable: Droptable
 
 var inOption1: bool = false
@@ -17,7 +15,7 @@ func _physics_process(_delta: float) -> void:
 
 func choose_option():
 	if Input.is_action_pressed("interact"):
-		abilitiesDroptable.drop_chosen(0, player)
+		abilitiesDroptable.drop_chosen(0, entity_tracker.player)
 		game_events_emitter.unpause_game()
 
 func _on_option_1_body_entered(_body: Node2D) -> void:

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=3 format=3 uid="uid://bjx5lvp36aarx"]
+
+[ext_resource type="PackedScene" uid="uid://bsvimk5rhpjje" path="res://scripts/mechanics/Bouncer Capsule/bouncer_capsule.tscn" id="1_7q3xk"]
+[ext_resource type="Script" uid="uid://dicioy4mhmm01" path="res://scripts/skill.gd" id="2_doaro"]
+
+[resource]
+script = ExtResource("2_doaro")
+entity = ExtResource("1_7q3xk")
+name = "Bouncing Capsule"
+description = "This persistent capsule bounces around the screen, damaging any baddie it touches."
+metadata/_custom_type_script = "uid://dicioy4mhmm01"

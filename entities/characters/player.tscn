@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dm04qvosp5tu0"]
+[gd_scene load_steps=17 format=3 uid="uid://dm04qvosp5tu0"]
 
 [ext_resource type="Script" uid="uid://d25ilwfuqta5h" path="res://entities/characters/player.gd" id="1_3eadt"]
 [ext_resource type="Resource" uid="uid://5spkav7akvnv" path="res://resources/entities/player/player_stats.tres" id="2_b0wws"]
@@ -40,6 +40,9 @@ fill_to = Vector2(0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_udy2f"]
 texture = SubResource("GradientTexture2D_b0wws")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0wws"]
+size = Vector2(1922, 47)
 
 [node name="Player" type="CharacterBody2D"]
 process_mode = 3
@@ -172,3 +175,9 @@ theme_override_styles/background = SubResource("StyleBoxFlat_tory2")
 theme_override_styles/fill = SubResource("StyleBoxTexture_udy2f")
 value = 100.0
 show_percentage = false
+
+[node name="TopCollider" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopCollider"]
+position = Vector2(0, -563.5)
+shape = SubResource("RectangleShape2D_b0wws")

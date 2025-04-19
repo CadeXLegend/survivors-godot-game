@@ -1,12 +1,11 @@
 class_name Summoned_Skeleton
 extends CharacterBody2D
 
-@onready var health: Quantity = %Health
-@onready var movementSpeed: Quantity = %MovementSpeed
+#@onready var health: Quantity = %Health
+#@onready var movementSpeed: Quantity = %MovementSpeed
 @onready var animationController = %AnimationController
 @onready var enemyDetector = %EnemyDetector
 
-@onready var player: CharacterBody2D = get_tree().get_first_node_in_group("Players")
 var target: CharacterBody2D
 var closestEnemy
 
@@ -22,16 +21,16 @@ func _physics_process(delta: float) -> void:
 	hitTimer += delta
 		
 	if !is_instance_valid(target):
-		target = player
+		target = entity_tracker.player
 	
-	if target == player:
-		var distance_from_player = global_position.distance_to(player.global_position)
+	if target == entity_tracker.player:
+		var distance_from_player = global_position.distance_to(entity_tracker.player.global_position)
 		if distance_from_player < 90.0:
 			return
 	
 	var direction: Vector2 = global_position.direction_to(target.global_position)
 	animationController.scale.x = -1 if direction.x > position.x else 1
-	velocity = direction * movementSpeed.current
+	#velocity = direction * movementSpeed.current
 	move_and_slide()
 
 func _find_nearest(targets: Array) -> CharacterBody2D:
@@ -51,7 +50,7 @@ func _on_personal_space_body_entered(body: Node2D) -> void:
 		hitTimer = 0
 		body.take_damage(2)
 		animationController.play("default")
-		health.remove(1)
+		#health.remove(1)
 
 func _on_enemy_detector_body_entered(body: Node2D) -> void:
 	var enemiesInRange = enemyDetector.get_overlapping_bodies().filter(
@@ -64,8 +63,7 @@ func _on_enemy_detector_body_entered(body: Node2D) -> void:
 	if enemiesInRange.size() > 0:
 		target = _find_nearest(enemiesInRange)
 	else:
-		target = player
-
+		target = entity_tracker.player
 
 func _on_health_none_left() -> void:
 	queue_free()

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsvimk5rhpjje"]
+
+[ext_resource type="Texture2D" uid="uid://u4qe7phup2lo" path="res://assets/coins-chests-etc-2-0-noborders.png" id="1_uytwp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pujbt"]
+radius = 9.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tfyr"]
+atlas = ExtResource("1_uytwp")
+region = Rect2(687, 576, 16, 16)
+
+[node name="BouncerCapsule" type="RigidBody2D"]
+collision_layer = 8388608
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_pujbt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_1tfyr")

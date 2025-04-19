@@ -82,6 +82,7 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 
 game_state_responder="*res://scripts/game_state_responder.tscn"
 game_events_emitter="*res://scripts/game_events_emitter.tscn"
+entity_tracker="*res://scripts/game_world_entity_tracker.gd"
 
 [display]
 
@@ -96,7 +97,7 @@ project/assembly_name="Getting started with Godot 4"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/colorpicker_presets/plugin.cfg", "res://addons/fancy_folder_colors/plugin.cfg", "res://addons/polygon2d_tool/plugin.cfg", "res://addons/post_processing/plugin.cfg")
+enabled=PackedStringArray("res://addons/colorpicker_presets/plugin.cfg", "res://addons/fancy_folder_colors/plugin.cfg", "res://addons/polygon2d_tool/plugin.cfg", "res://addons/post_processing/plugin.cfg", "res://addons/worldmap_builder/plugin.cfg")
 
 [file_customization]
 

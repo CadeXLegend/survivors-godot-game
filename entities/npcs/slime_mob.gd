@@ -6,7 +6,6 @@ extends CharacterBody2D
 @export var hitSFX: AudioStreamPlayer2D
 
 @onready var animationController = %Slime
-@onready var player = get_tree().get_first_node_in_group("Players")
 @onready var collisionBox: CollisionShape2D = %CollisionShape2D
 @onready var currentScene = get_tree().current_scene
 
@@ -19,7 +18,7 @@ func _ready():
 	stats.health.none_left.connect(on_health_none_left)
 
 func _physics_process(delta: float) -> void:
-	var direction = global_position.direction_to(player.global_position)
+	var direction = global_position.direction_to(entity_tracker.player.global_position)
 	velocity = stats.knockback.current + (direction * stats.movementSpeed.current)
 	move_and_slide()
 	
