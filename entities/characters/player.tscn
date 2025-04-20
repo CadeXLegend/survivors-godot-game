@@ -7,8 +7,8 @@
 [ext_resource type="Script" uid="uid://bd6ou7yl33fbn" path="res://addons/polygon2d_tool/polygon_2d_tool.gd" id="5_b0wws"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b0wws"]
-radius = 2.2
-height = 7.8
+radius = 6.0
+height = 20.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_udy2f"]
 radius = 4.33333
@@ -65,11 +65,13 @@ xpBar = NodePath("LocalisedPlayerUI/XPBar")
 levelLabel = NodePath("LocalisedPlayerUI/LvlRect/LevelLabel")
 
 [node name="PlayerSprite" parent="." instance=ExtResource("2_tory2")]
+y_sort_enabled = true
 
 [node name="Collision Circle" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 29)
-scale = Vector2(3, 3)
+z_index = 20
+position = Vector2(0, 30)
 shape = SubResource("CapsuleShape2D_b0wws")
+debug_color = Color(0, 0.646772, 0.228726, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

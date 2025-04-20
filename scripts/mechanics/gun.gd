@@ -2,14 +2,12 @@ extends Area2D
 
 @onready var marker: Marker2D = %ShootingPoint
 @export var bullet: PackedScene
-var enemiesInRange = []
 
 func _physics_process(_delta: float) -> void:
-	enemiesInRange = get_overlapping_bodies()
-
-	if enemiesInRange.size() > 0:
-		var targetEnemy = enemiesInRange[0]
-		look_at(targetEnemy.global_position)
+	if entity_tracker.player().stats.health.current <= entity_tracker.player().stats.health.minimum:
+		return
+	
+	look_at(get_global_mouse_position())
 
 func shoot():
 	game_state_responder.spawn(bullet) \
@@ -19,5 +17,4 @@ func shoot():
 						.create()
 
 func _on_timer_timeout() -> void:
-	if enemiesInRange.size() > 0:
-		shoot()
+	shoot()

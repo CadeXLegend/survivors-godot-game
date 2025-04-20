@@ -216,6 +216,7 @@ script = ExtResource("1_v7mpn")
 animation_player = NodePath("AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_dadfp")
 animation = &"death"
 speed_scale = 2.4

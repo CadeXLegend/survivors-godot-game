@@ -65,7 +65,7 @@ func on_health_none_left() -> void:
 	await get_tree().create_timer(0.1).timeout
 	animationController.play_death_animation()
 	await get_tree().create_timer(1.5).timeout
-	get_tree().reload_current_scene()
+	get_tree().call_deferred("reload_current_scene")
 
 func on_health_changed() -> void:
 	healthBar.value = stats.health.current

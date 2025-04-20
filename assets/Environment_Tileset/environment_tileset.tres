@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://c22c4ej2ue2nv"]
+[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://c22c4ej2ue2nv"]
 
 [ext_resource type="Texture2D" uid="uid://bee17e761gbt1" path="res://assets/Environment_Tileset/TX Tileset Grass.png" id="1_pd1om"]
 [ext_resource type="Texture2D" uid="uid://ds6a22cmcp4us" path="res://assets/Environment_Tileset/TX Tileset Stone Ground.png" id="2_70gjc"]
@@ -9,6 +9,9 @@ tile_data = PackedInt32Array(65536, 1441794, 17, 131072, 1441794, 18, 196608, 14
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_70gjc"]
 tile_data = PackedInt32Array(65536, 2, 27, 131072, 2, 28, 1, 65538, 26, 65537, 65538, 27, 131073, 65538, 28, 196609, 65538, 29, 2, 131074, 26, 65538, 131074, 27, 131074, 131074, 28, 196610, 131074, 29, 65539, 196610, 27, 131075, 196610, 28, 196611, 196610, 29)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_qeo7a"]
+tile_data = PackedInt32Array(0, 1441794, 11)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_une73"]
 texture = ExtResource("1_pd1om")
@@ -628,8 +631,6 @@ texture = ExtResource("3_qeo7a")
 11:10/0 = 0
 18:10/0 = 0
 19:10/0 = 0
-22:10/0 = 0
-23:10/0 = 0
 1:11/0 = 0
 2:11/0 = 0
 3:11/0 = 0
@@ -642,8 +643,6 @@ texture = ExtResource("3_qeo7a")
 15:11/0 = 0
 18:11/0 = 0
 19:11/0 = 0
-22:11/0 = 0
-23:11/0 = 0
 1:12/0 = 0
 2:12/0 = 0
 3:12/0 = 0
@@ -654,8 +653,6 @@ texture = ExtResource("3_qeo7a")
 17:12/0 = 0
 18:12/0 = 0
 19:12/0 = 0
-22:12/0 = 0
-23:12/0 = 0
 26:12/0 = 0
 27:12/0 = 0
 1:13/0 = 0
@@ -670,8 +667,6 @@ texture = ExtResource("3_qeo7a")
 17:13/0 = 0
 18:13/0 = 0
 19:13/0 = 0
-22:13/0 = 0
-23:13/0 = 0
 26:13/0 = 0
 27:13/0 = 0
 6:14/0 = 0
@@ -680,8 +675,6 @@ texture = ExtResource("3_qeo7a")
 11:14/0 = 0
 14:14/0 = 0
 15:14/0 = 0
-22:14/0 = 0
-23:14/0 = 0
 26:14/0 = 0
 27:14/0 = 0
 6:15/0 = 0
@@ -692,8 +685,6 @@ texture = ExtResource("3_qeo7a")
 15:15/0 = 0
 18:15/0 = 0
 19:15/0 = 0
-22:15/0 = 0
-23:15/0 = 0
 26:15/0 = 0
 27:15/0 = 0
 14:16/0 = 0
@@ -840,6 +831,12 @@ texture = ExtResource("3_qeo7a")
 17:31/0 = 0
 18:31/0 = 0
 19:31/0 = 0
+22:11/size_in_atlas = Vector2i(2, 5)
+22:11/next_alternative_id = 2
+22:11/0 = 0
+22:11/0/z_index = 10
+22:11/0/y_sort_origin = -20
+22:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.3779, 8.2735, 15.3779, 8.45336, 15.7376, 34.1732, -15.5578, 33.9933)
 
 [resource]
 physics_layer_0/collision_layer = 3
@@ -849,3 +846,4 @@ sources/1 = SubResource("TileSetAtlasSource_usa35")
 sources/2 = SubResource("TileSetAtlasSource_ppxrt")
 pattern_0 = SubResource("TileMapPattern_pd1om")
 pattern_1 = SubResource("TileMapPattern_70gjc")
+pattern_2 = SubResource("TileMapPattern_qeo7a")
