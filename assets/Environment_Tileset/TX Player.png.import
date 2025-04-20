@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qmqpm6asge1i"
-path="res://.godot/imported/square_upper_leg.png-44c8de4944ea12518ab21f44f7cd6966.ctex"
+uid="uid://cjph6wi2fa75f"
+path="res://.godot/imported/TX Player.png-175f81dea2dcfe86935b1a4a0a27a346.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/characters/happy_boo/square_upper_leg.png"
-dest_files=["res://.godot/imported/square_upper_leg.png-44c8de4944ea12518ab21f44f7cd6966.ctex"]
+source_file="res://assets/Environment_Tileset/TX Player.png"
+dest_files=["res://.godot/imported/TX Player.png-175f81dea2dcfe86935b1a4a0a27a346.ctex"]
 
 [params]
 

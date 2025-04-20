@@ -1,57 +1,57 @@
 [gd_resource type="Resource" script_class="Stats" load_steps=11 format=3 uid="uid://c3n64adan2120"]
 
-[ext_resource type="Script" uid="uid://b0jdpwn1bs00j" path="res://scripts/custom_signals/quantity/quantity.gd" id="1_2xhu1"]
-[ext_resource type="Script" uid="uid://dphokgvjqmpke" path="res://scripts/custom_signals/damager/damager.gd" id="2_2xhu1"]
-[ext_resource type="Script" uid="uid://c0i41u05q0ixi" path="res://scripts/stats.gd" id="3_bh52m"]
+[ext_resource type="Script" uid="uid://b0jdpwn1bs00j" path="res://scripts/custom_signals/quantity/quantity.gd" id="1_bsy6p"]
+[ext_resource type="Script" uid="uid://dphokgvjqmpke" path="res://scripts/custom_signals/damager/damager.gd" id="2_0t3oq"]
+[ext_resource type="Script" uid="uid://c0i41u05q0ixi" path="res://scripts/stats.gd" id="3_8o7qt"]
 
 [sub_resource type="Resource" id="Resource_diyd0"]
-script = ExtResource("1_2xhu1")
+script = ExtResource("1_bsy6p")
 minimum = 0.0
 maximum = 1.0
 current = 1.0
 metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
 
 [sub_resource type="Resource" id="Resource_sd3g6"]
-script = ExtResource("2_2xhu1")
+script = ExtResource("2_0t3oq")
 metadata/_custom_type_script = "uid://dphokgvjqmpke"
 
 [sub_resource type="Resource" id="Resource_urw0u"]
-script = ExtResource("1_2xhu1")
+script = ExtResource("1_bsy6p")
 minimum = 0.0
 maximum = 10000.0
 current = 2000.0
 metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
 
 [sub_resource type="Resource" id="Resource_wmlxb"]
-script = ExtResource("1_2xhu1")
+script = ExtResource("1_bsy6p")
 minimum = 0.0
 maximum = 7.0
 current = 0.0
 metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
 
 [sub_resource type="Resource" id="Resource_d8vs6"]
-script = ExtResource("1_2xhu1")
+script = ExtResource("1_bsy6p")
 minimum = 0.0
 maximum = 1.0
 current = 1.0
 metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
 
 [sub_resource type="Resource" id="Resource_2xhu1"]
-script = ExtResource("1_2xhu1")
+script = ExtResource("1_bsy6p")
 minimum = 0.0
 maximum = 256.0
 current = 94.0
 metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
 
 [sub_resource type="Resource" id="Resource_msor4"]
-script = ExtResource("1_2xhu1")
+script = ExtResource("1_bsy6p")
 minimum = 0.0
 maximum = 20.0
 current = 0.0
 metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
 
 [resource]
-script = ExtResource("3_bh52m")
+script = ExtResource("3_8o7qt")
 damage = SubResource("Resource_diyd0")
 damager = SubResource("Resource_sd3g6")
 movementSpeed = SubResource("Resource_d8vs6")

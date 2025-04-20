@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ng8e5ot0dtpd"
-path="res://.godot/imported/square_foot.png-b189481850634b87e9d2526303f5a17d.ctex"
+uid="uid://bee17e761gbt1"
+path="res://.godot/imported/TX Tileset Grass.png-2a6080639ebd1a93788c0e8dc61bc804.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/characters/happy_boo/square_foot.png"
-dest_files=["res://.godot/imported/square_foot.png-b189481850634b87e9d2526303f5a17d.ctex"]
+source_file="res://assets/Environment_Tileset/TX Tileset Grass.png"
+dest_files=["res://.godot/imported/TX Tileset Grass.png-2a6080639ebd1a93788c0e8dc61bc804.ctex"]
 
 [params]
 

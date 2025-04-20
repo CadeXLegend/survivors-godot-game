@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqvnu14v3eedw"]
+[gd_scene load_steps=13 format=4 uid="uid://bqvnu14v3eedw"]
 
 [ext_resource type="Script" uid="uid://drutbb2c6j31l" path="res://addons/post_processing/node/post_process.gd" id="1_5mrb7"]
 [ext_resource type="PackedScene" uid="uid://dm04qvosp5tu0" path="res://entities/characters/player.tscn" id="1_wkcnj"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://fwh08w4uiktb" path="res://entities/npcs/SlimeMob.tscn" id="6_ee6eb"]
 [ext_resource type="PackedScene" uid="uid://rcgjxbmdi6r8" path="res://scripts/mechanics/drops/magnet/magnet.tscn" id="8_bwn4j"]
 [ext_resource type="Script" uid="uid://mb2laaa8fwvc" path="res://scripts/spawn_on_game_paused.gd" id="9_2sip7"]
+[ext_resource type="PackedScene" uid="uid://celfi1ug0j82d" path="res://infinite_tiling_set.tscn" id="9_w2f7m"]
+[ext_resource type="TileSet" uid="uid://c22c4ej2ue2nv" path="res://assets/Environment_Tileset/environment_tileset.tres" id="10_ee6eb"]
 [ext_resource type="Resource" uid="uid://4ty645lf7p8r" path="res://resources/upgrade_selection_gui_droptable.tres" id="10_w2f7m"]
 
 [sub_resource type="Resource" id="Resource_d0dif"]
@@ -111,6 +113,7 @@ y_sort_enabled = true
 layer = -100
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 offset_left = -2317.0
 offset_top = -1473.0
 offset_right = 2311.0
@@ -142,4 +145,12 @@ script = ExtResource("9_2sip7")
 droptable = ExtResource("10_w2f7m")
 
 [node name="magnet" parent="." instance=ExtResource("8_bwn4j")]
-position = Vector2(366, -102)
+position = Vector2(366, -440)
+
+[node name="InfiniteTilingSet" parent="." instance=ExtResource("9_w2f7m")]
+position = Vector2(-1024, 1024)
+
+[node name="Decorations" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD9/wAAAgAWABEAAAD9/wEAAgAWABIAAAD9/wIAAgAWABMAAAD9/wMAAgAWABQAAAD+/wAAAgAXABEAAAD+/wEAAgAXABIAAAD+/wIAAgAXABMAAAD+/wMAAgAXABQAAAD+/wQAAgAXABUAAAD/////AgAYABAAAAD//wAAAgAYABEAAAD//wEAAgAYABIAAAD//wIAAgAYABMAAAD//wMAAgAYABQAAAD//wQAAgAYABUAAAAAAP//AgAZABAAAAAAAAAAAgAZABEAAAAAAAEAAgAZABIAAAAAAAIAAgAZABMAAAAAAAMAAgAZABQAAAAAAAQAAgAZABUAAAABAAAAAgAaABEAAAABAAEAAgAaABIAAAABAAIAAgAaABMAAAABAAMAAgAaABQAAAABAAQAAgAaABUAAAACAAAAAgAbABEAAAACAAEAAgAbABIAAAACAAIAAgAbABMAAAACAAMAAgAbABQAAAAUAPX/AgAAABsAAAAUAPb/AgAAABwAAAAVAPT/AgABABoAAAAVAPX/AgABABsAAAAVAPb/AgABABwAAAAVAPf/AgABAB0AAAAWAPT/AgACABoAAAAWAPX/AgACABsAAAAWAPb/AgACABwAAAAWAPf/AgACAB0AAAAXAPX/AgADABsAAAAXAPb/AgADABwAAAAXAPf/AgADAB0AAAA=")
+tile_set = ExtResource("10_ee6eb")

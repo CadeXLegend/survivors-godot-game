@@ -18,7 +18,7 @@ func _ready():
 	stats.health.none_left.connect(on_health_none_left)
 
 func _physics_process(delta: float) -> void:
-	var direction = global_position.direction_to(entity_tracker.player.global_position)
+	var direction = global_position.direction_to(entity_tracker.player().global_position)
 	velocity = stats.knockback.current + (direction * stats.movementSpeed.current)
 	move_and_slide()
 	
@@ -31,3 +31,6 @@ func on_health_lost() -> void:
 func on_health_none_left() -> void:
 		queue_free()
 		droptable.drop_at(global_position, currentScene)
+
+func enemy():
+	pass

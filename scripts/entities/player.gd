@@ -6,19 +6,16 @@ extends CharacterBody2D
 
 @export var stats: Stats
 
-@onready var animationController: Node2D = %HappyBoo
-@onready var hitbox: Area2D = %Hitbox
-@onready var healthBar: ProgressBar = %HealthBar
-@onready var xpBar: ProgressBar = %XPBar
-@onready var levelLabel: Label = %LevelLabel
-
-var levelUpQueue: Array[Callable]
+@export var animationController: PlayerAnimationController
+@export var hitbox: Area2D
+@export var healthBar: ProgressBar
+@export var xpBar: ProgressBar
+@export var levelLabel: Label
 
 func _ready():
 	stats = stats.duplicate(true)
 	stats.health.none_left.connect(on_health_none_left)
 	stats.health.modified.connect(on_health_changed)
-	stats.xp.full.connect(func(): levelUpQueue.push_back(level_up))
 	stats.xp.full.connect(on_experience_full)
 	stats.xp.maximum_increased.connect(func(): xpBar.max_value = stats.xp.maximum)
 	stats.xp.modified.connect(update_xp_bar)
@@ -32,7 +29,7 @@ func _ready():
 	stats.health.maximum_increased.connect(func(): healthBar.max_value = stats.health.maximum)
 	game_events_emitter.game_unpaused.connect(on_unpause_after_lvl_up)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if stats.health.current <= stats.health.minimum:
 		return
 	
@@ -41,7 +38,8 @@ func _physics_process(delta: float) -> void:
 	
 	if amountOfMobsHittingPlayer > 0:
 		for mob in overlappingMobs:
-			stats.damager.deal_damage(mob.stats.damage.current, self)
+			if mob.has_method("enemy"):
+				stats.damager.deal_damage(mob.stats.damage.current, self)
 	
 	var movementDirection = Input.get_vector(directions[0], directions[1], directions[2], directions[3])
 	velocity = movementDirection * stats.movementSpeed.current
@@ -54,26 +52,19 @@ func _physics_process(delta: float) -> void:
 		animationController.play_idle_animation()
 
 func on_experience_full() -> void:
-	if levelUpQueue.size() > 0:
-		if !get_tree().paused:
-			levelUpQueue.pop_back().call()
-			game_events_emitter.pause_game()
-
-func level_up():
 	stats.level.add(1)
 	stats.health.set_to(stats.health.maximum)
+	game_events_emitter.pause_game()
 
 func on_unpause_after_lvl_up():
-	stats.xp.increase_max(stats.level.current * 100 * 1.25)
 	stats.xp.remove(stats.xp.maximum)
+	stats.xp.increase_max(stats.level.current * 100 * 1.25)
 	stats.xp.add_from_overflow()
-	
-	if levelUpQueue.size() > 0:
-		on_experience_full()
 
 func on_health_none_left() -> void:
+	await get_tree().create_timer(0.1).timeout
 	animationController.play_death_animation()
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1.5).timeout
 	get_tree().reload_current_scene()
 
 func on_health_changed() -> void:

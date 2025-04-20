@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cksiu5gst6fmp"
-path="res://.godot/imported/square_body.png-2d193279e7fd47cf303d6ad2e89a2e92.ctex"
+uid="uid://1vl6tnhp3xtd"
+path="res://.godot/imported/TX Shadow Plant.png-37c394a744095ec88f3a30a609b61892.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/characters/happy_boo/square_body.png"
-dest_files=["res://.godot/imported/square_body.png-2d193279e7fd47cf303d6ad2e89a2e92.ctex"]
+source_file="res://assets/Environment_Tileset/TX Shadow Plant.png"
+dest_files=["res://.godot/imported/TX Shadow Plant.png-37c394a744095ec88f3a30a609b61892.ctex"]
 
 [params]
 

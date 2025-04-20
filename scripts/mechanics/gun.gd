@@ -6,9 +6,9 @@ var enemiesInRange = []
 
 func _physics_process(_delta: float) -> void:
 	enemiesInRange = get_overlapping_bodies()
-	
+
 	if enemiesInRange.size() > 0:
-		var targetEnemy: CharacterBody2D = enemiesInRange[0]
+		var targetEnemy = enemiesInRange[0]
 		look_at(targetEnemy.global_position)
 
 func shoot():

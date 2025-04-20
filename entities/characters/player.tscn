@@ -1,13 +1,18 @@
-[gd_scene load_steps=17 format=3 uid="uid://dm04qvosp5tu0"]
+[gd_scene load_steps=18 format=3 uid="uid://dm04qvosp5tu0"]
 
-[ext_resource type="Script" uid="uid://d25ilwfuqta5h" path="res://entities/characters/player.gd" id="1_3eadt"]
+[ext_resource type="Script" uid="uid://d25ilwfuqta5h" path="res://scripts/entities/player.gd" id="1_3eadt"]
 [ext_resource type="Resource" uid="uid://5spkav7akvnv" path="res://resources/entities/player/player_stats.tres" id="2_b0wws"]
-[ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://entities/characters/happy_boo/happy_boo.tscn" id="2_tory2"]
+[ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://scripts/PlayerSprite.tscn" id="2_tory2"]
 [ext_resource type="PackedScene" uid="uid://cjt2pljcy5v4f" path="res://scripts/mechanics/Weapon.tscn" id="3_tory2"]
 [ext_resource type="Script" uid="uid://bd6ou7yl33fbn" path="res://addons/polygon2d_tool/polygon_2d_tool.gd" id="5_b0wws"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
-radius = 6.66667
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b0wws"]
+radius = 2.2
+height = 7.8
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_udy2f"]
+radius = 4.33333
+height = 15.3333
 
 [sub_resource type="SystemFont" id="SystemFont_b0wws"]
 subpixel_positioning = 0
@@ -45,7 +50,7 @@ texture = SubResource("GradientTexture2D_b0wws")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0wws"]
 size = Vector2(1922, 47)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animationController", "hitbox", "healthBar", "xpBar", "levelLabel")]
 process_mode = 3
 z_index = 10
 collision_mask = 3
@@ -53,14 +58,18 @@ motion_mode = 1
 slide_on_ceiling = false
 script = ExtResource("1_3eadt")
 stats = ExtResource("2_b0wws")
+animationController = NodePath("PlayerSprite")
+hitbox = NodePath("Hitbox")
+healthBar = NodePath("LocalisedPlayerUI/HealthBar")
+xpBar = NodePath("LocalisedPlayerUI/XPBar")
+levelLabel = NodePath("LocalisedPlayerUI/LvlRect/LevelLabel")
 
-[node name="HappyBoo" parent="." instance=ExtResource("2_tory2")]
-unique_name_in_owner = true
+[node name="PlayerSprite" parent="." instance=ExtResource("2_tory2")]
 
 [node name="Collision Circle" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 27)
+position = Vector2(-1, 29)
 scale = Vector2(3, 3)
-shape = SubResource("CircleShape2D_onrkg")
+shape = SubResource("CapsuleShape2D_b0wws")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -69,14 +78,13 @@ process_mode = 1
 position = Vector2(-2, -46)
 
 [node name="Hitbox" type="Area2D" parent="."]
-unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 2
 
 [node name="Collision Circle" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-1, 27)
 scale = Vector2(3, 3)
-shape = SubResource("CircleShape2D_onrkg")
+shape = SubResource("CapsuleShape2D_udy2f")
 debug_color = Color(0.995841, 0, 0.197995, 0.42)
 
 [node name="LocalisedPlayerUI" type="Control" parent="."]
@@ -121,7 +129,6 @@ rotate = 45.0
 metadata/_custom_type_script = "uid://bd6ou7yl33fbn"
 
 [node name="LevelLabel" type="Label" parent="LocalisedPlayerUI/LvlRect"]
-unique_name_in_owner = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -152,7 +159,6 @@ uv = PackedVector2Array(71.4996, 50.0005, -117.5, 50.0005, -116.5, -75.9995, 75.
 internal_vertex_count = 4
 
 [node name="HealthBar" type="ProgressBar" parent="LocalisedPlayerUI"]
-unique_name_in_owner = true
 z_index = 1002
 layout_mode = 0
 offset_left = -30.0
@@ -165,7 +171,6 @@ value = 100.0
 show_percentage = false
 
 [node name="XPBar" type="ProgressBar" parent="LocalisedPlayerUI"]
-unique_name_in_owner = true
 z_index = 1002
 layout_mode = 0
 offset_left = -30.0

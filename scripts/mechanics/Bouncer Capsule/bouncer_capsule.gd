@@ -18,7 +18,7 @@ func _ready() -> void:
 	
 func reset():
 	stats.health.set_to(stats.health.maximum)
-	child.global_position = entity_tracker.player.global_position
+	child.global_position = entity_tracker.player().global_position
 	isDisabled = true
 	game_state_responder.disable_self_and_physics(child)
 	timer.start()
@@ -29,8 +29,9 @@ func _physics_process(delta: float) -> void:
 	
 	var point = direction * stats.movementSpeed.current * delta
 	#child.angular_velocity = 45
+	child.rotate(45 * delta)
 	var collision = child.move_and_collide(point)
-	child.look_at(-point)
+	#child.look_at(-point)
 	if collision:
 		if canTakeDamage:
 			stats.health.remove(1)

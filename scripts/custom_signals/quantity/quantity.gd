@@ -23,7 +23,7 @@ signal overflow_added
 # these are the core functions used to control the quantity
 # which then also correlate to the emitting of related events
 func add(value: float, storeOverflow: bool = false) -> void:
-	if value == 0:
+	if value <= 0:
 		return
 
 	var tenative_value = current + value
@@ -34,7 +34,7 @@ func add(value: float, storeOverflow: bool = false) -> void:
 
 	if tenative_value > maximum:
 		if storeOverflow:
-			overflow += tenative_value - maximum
+			overflow = tenative_value - maximum
 			overflow_added.emit()
 		tenative_value = maximum
 		full.emit()
@@ -44,7 +44,7 @@ func add(value: float, storeOverflow: bool = false) -> void:
 	gained.emit()
 
 func remove(value: float) -> void:
-	if value == 0:
+	if value <= 0:
 		return
 
 	current -= value
@@ -73,11 +73,11 @@ func add_from_overflow() -> void:
 	if overflow <= 0:
 		return
 
-	if overflow < maximum:
+	if overflow <= maximum:
 		add(overflow)
 		clear_overflow()
 	if overflow > maximum:
-		add(overflow)
+		add(overflow, true)
 
 func clear_overflow() -> void:
 	overflow = 0

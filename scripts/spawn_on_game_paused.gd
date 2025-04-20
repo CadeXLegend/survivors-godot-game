@@ -5,4 +5,4 @@ extends Node2D
 
 func _ready():
 	game_events_emitter.game_paused.connect(func(): droptable.drop_at(
-		entity_tracker.player.global_position, currentScene))
+		entity_tracker.player().global_position, currentScene))

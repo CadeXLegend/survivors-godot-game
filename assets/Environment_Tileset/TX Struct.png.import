@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2ent6mf1y7w7"
-path="res://.godot/imported/square_ref.png-54197ed2cac40146ccd7140b0489b98d.ctex"
+uid="uid://xgnfvcxovv1f"
+path="res://.godot/imported/TX Struct.png-46f6033d0fccae014f3b736ad1070cc7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/characters/happy_boo/square_ref.png"
-dest_files=["res://.godot/imported/square_ref.png-54197ed2cac40146ccd7140b0489b98d.ctex"]
+source_file="res://assets/Environment_Tileset/TX Struct.png"
+dest_files=["res://.godot/imported/TX Struct.png-46f6033d0fccae014f3b736ad1070cc7.ctex"]
 
 [params]
 

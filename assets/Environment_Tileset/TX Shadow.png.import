@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvs0lh814pk7h"
-path="res://.godot/imported/square_face.png-faa11addd2a42a3d7595169136f79060.ctex"
+uid="uid://6davcacfu6r5"
+path="res://.godot/imported/TX Shadow.png-0a4e09c385c23d6a5bd53108f53f52e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/characters/happy_boo/square_face.png"
-dest_files=["res://.godot/imported/square_face.png-faa11addd2a42a3d7595169136f79060.ctex"]
+source_file="res://assets/Environment_Tileset/TX Shadow.png"
+dest_files=["res://.godot/imported/TX Shadow.png-0a4e09c385c23d6a5bd53108f53f52e1.ctex"]
 
 [params]
 

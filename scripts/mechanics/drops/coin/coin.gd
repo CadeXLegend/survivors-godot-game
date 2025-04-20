@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	speedOverDistance += 0.1
-	global_position = global_position.lerp(entity_tracker.player.global_position, 1 * delta * speedOverDistance)
+	global_position = global_position.lerp(entity_tracker.player().global_position, 1 * delta * speedOverDistance)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:

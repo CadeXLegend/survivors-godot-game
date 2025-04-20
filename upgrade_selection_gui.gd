@@ -26,7 +26,7 @@ func _physics_process(_delta: float) -> void:
 func choose_option():
 	if Input.is_action_pressed("interact"):
 		var entity = chosenSkills[current_option - 1].entity
-		game_state_responder.spawn(entity).as_child_of(entity_tracker.player).create()
+		game_state_responder.spawn(entity).as_child_of(entity_tracker.player()).create()
 		game_events_emitter.unpause_game()
 
 func _on_option_1_body_entered(_body: Node2D) -> void:
