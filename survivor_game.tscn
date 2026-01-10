@@ -29,7 +29,7 @@ layer = -100
 
 [node name="Player" parent="." groups=["Players"] instance=ExtResource("1_wkcnj")]
 y_sort_enabled = true
-position = Vector2(-144, 0)
+position = Vector2(3, -2)
 
 [node name="BoundsPath" type="Path2D" parent="Player"]
 position = Vector2(-1, 1)
@@ -38,7 +38,7 @@ curve = SubResource("Curve2D_8id3q")
 [node name="OutOfViewSpawnPath" type="PathFollow2D" parent="Player/BoundsPath"]
 unique_name_in_owner = true
 position = Vector2(-1069, -616)
-rotation = 1.6103
+rotation = 1.6103047
 
 [node name="MobSpawner" parent="." instance=ExtResource("3_kbdm8")]
 mob = ExtResource("6_ee6eb")

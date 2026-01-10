@@ -1,0 +1,139 @@
+[gd_scene load_steps=7 format=3 uid="uid://dycdu6qnqpnm3"]
+
+[ext_resource type="Script" uid="uid://cmw4lpixwe0bc" path="res://scripts/mechanics/old_unused/circling_orb/circling_orb.gd" id="1_fd1a6"]
+[ext_resource type="Resource" uid="uid://c3n64adan2120" path="res://resources/skills/circling_orb/circling_orbs_stats.tres" id="2_54h6o"]
+[ext_resource type="Texture2D" uid="uid://bjlavjltb3rh4" path="res://assets/Treasure/Treasure.png" id="2_l2vj5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pre3g"]
+atlas = ExtResource("2_l2vj5")
+region = Rect2(192, 192, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fd1a6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pre3g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pre3g"]
+radius = 14.0
+
+[node name="CirclingOrb" type="Node2D" node_paths=PackedStringArray("pivots", "orbs")]
+script = ExtResource("1_fd1a6")
+stats = ExtResource("2_54h6o")
+pivots = [NodePath("Pivot"), NodePath("Pivot2")]
+orbs = [NodePath("Pivot/Orb1"), NodePath("Pivot/Orb2"), NodePath("Pivot/Orb3"), NodePath("Pivot/Orb4"), NodePath("Pivot2/Orb1"), NodePath("Pivot2/Orb2"), NodePath("Pivot2/Orb3"), NodePath("Pivot2/Orb4")]
+
+[node name="Pivot" type="Marker2D" parent="."]
+
+[node name="Orb1" type="Node2D" parent="Pivot"]
+position = Vector2(94, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot/Orb1"]
+sprite_frames = SubResource("SpriteFrames_fd1a6")
+
+[node name="hitbox" type="Area2D" parent="Pivot/Orb1"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Orb1/hitbox"]
+shape = SubResource("CircleShape2D_pre3g")
+
+[node name="Orb2" type="Node2D" parent="Pivot"]
+position = Vector2(-94, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot/Orb2"]
+sprite_frames = SubResource("SpriteFrames_fd1a6")
+
+[node name="hitbox" type="Area2D" parent="Pivot/Orb2"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Orb2/hitbox"]
+shape = SubResource("CircleShape2D_pre3g")
+
+[node name="Orb3" type="Node2D" parent="Pivot"]
+position = Vector2(0, 94)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot/Orb3"]
+sprite_frames = SubResource("SpriteFrames_fd1a6")
+
+[node name="hitbox" type="Area2D" parent="Pivot/Orb3"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Orb3/hitbox"]
+shape = SubResource("CircleShape2D_pre3g")
+
+[node name="Orb4" type="Node2D" parent="Pivot"]
+position = Vector2(0, -94)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot/Orb4"]
+sprite_frames = SubResource("SpriteFrames_fd1a6")
+
+[node name="hitbox" type="Area2D" parent="Pivot/Orb4"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Orb4/hitbox"]
+shape = SubResource("CircleShape2D_pre3g")
+
+[node name="Pivot2" type="Marker2D" parent="."]
+rotation = 0.785398
+
+[node name="Orb1" type="Node2D" parent="Pivot2"]
+position = Vector2(94, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot2/Orb1"]
+sprite_frames = SubResource("SpriteFrames_fd1a6")
+
+[node name="hitbox" type="Area2D" parent="Pivot2/Orb1"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot2/Orb1/hitbox"]
+shape = SubResource("CircleShape2D_pre3g")
+
+[node name="Orb2" type="Node2D" parent="Pivot2"]
+position = Vector2(-94, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot2/Orb2"]
+sprite_frames = SubResource("SpriteFrames_fd1a6")
+
+[node name="hitbox" type="Area2D" parent="Pivot2/Orb2"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot2/Orb2/hitbox"]
+shape = SubResource("CircleShape2D_pre3g")
+
+[node name="Orb3" type="Node2D" parent="Pivot2"]
+position = Vector2(0, 94)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot2/Orb3"]
+sprite_frames = SubResource("SpriteFrames_fd1a6")
+
+[node name="hitbox" type="Area2D" parent="Pivot2/Orb3"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot2/Orb3/hitbox"]
+shape = SubResource("CircleShape2D_pre3g")
+
+[node name="Orb4" type="Node2D" parent="Pivot2"]
+position = Vector2(0, -94)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot2/Orb4"]
+sprite_frames = SubResource("SpriteFrames_fd1a6")
+
+[node name="hitbox" type="Area2D" parent="Pivot2/Orb4"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot2/Orb4/hitbox"]
+shape = SubResource("CircleShape2D_pre3g")
+
+[connection signal="body_entered" from="Pivot/Orb1/hitbox" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Pivot/Orb2/hitbox" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Pivot/Orb3/hitbox" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Pivot/Orb4/hitbox" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Pivot2/Orb1/hitbox" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Pivot2/Orb2/hitbox" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Pivot2/Orb3/hitbox" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Pivot2/Orb4/hitbox" to="." method="_on_area_2d_body_entered"]

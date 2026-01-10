@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="InputActionBinding" load_steps=2 format=3 uid="uid://oejbaxqjt5y5"]
+
+[ext_resource type="Script" uid="uid://cec7wtgjxwl8a" path="res://scripts/custom_resources/actions/input_action_binding.gd" id="1_eg6v6"]
+
+[resource]
+script = ExtResource("1_eg6v6")
+input = &"move_right"
+metadata/_custom_type_script = "uid://cec7wtgjxwl8a"

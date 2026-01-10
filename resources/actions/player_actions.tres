@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Actions" load_steps=8 format=3 uid="uid://d1qhexgg42wwx"]
+
+[ext_resource type="Script" uid="uid://wqtjvtj0qcya" path="res://scripts/custom_resources/actions/actions.gd" id="1_3040e"]
+[ext_resource type="Script" uid="uid://cec7wtgjxwl8a" path="res://scripts/custom_resources/actions/input_action_binding.gd" id="1_tepva"]
+[ext_resource type="Resource" uid="uid://df8uaqc1bgid3" path="res://resources/actions/input_action_bindings/up.tres" id="2_jpw53"]
+[ext_resource type="Resource" uid="uid://dbyt6jhvaj36h" path="res://resources/actions/input_action_bindings/down.tres" id="3_20ysd"]
+[ext_resource type="Resource" uid="uid://dr8g1kqrh2ban" path="res://resources/actions/input_action_bindings/left.tres" id="4_688r8"]
+[ext_resource type="Resource" uid="uid://oejbaxqjt5y5" path="res://resources/actions/input_action_bindings/right.tres" id="5_rhgf6"]
+[ext_resource type="Resource" uid="uid://b6exa3sqr6bgc" path="res://resources/actions/input_action_bindings/walk.tres" id="6_x0mjb"]
+
+[resource]
+script = ExtResource("1_3040e")
+directions = Dictionary[int, ExtResource("1_tepva")]({
+0: ExtResource("2_jpw53"),
+1: ExtResource("3_20ysd"),
+2: ExtResource("4_688r8"),
+3: ExtResource("5_rhgf6")
+})
+movements = Dictionary[int, ExtResource("1_tepva")]({
+0: ExtResource("6_x0mjb")
+})
+metadata/_custom_type_script = "uid://wqtjvtj0qcya"

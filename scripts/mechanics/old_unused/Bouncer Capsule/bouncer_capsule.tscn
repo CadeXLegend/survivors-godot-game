@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsvimk5rhpjje"]
+
+[ext_resource type="Script" uid="uid://biwmiy41tfxaf" path="res://scripts/mechanics/old_unused/Bouncer Capsule/bouncer_capsule.gd" id="1_pujbt"]
+[ext_resource type="Resource" uid="uid://yvn564b2m8fp" path="res://resources/skills/bouncing_capsule/bouncing_capsule_stats.tres" id="2_1tfyr"]
+[ext_resource type="Texture2D" uid="uid://de2hn2e4hy47n" path="res://assets/32rogues/items.png" id="3_1tfyr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pujbt"]
+radius = 9.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tfyr"]
+atlas = ExtResource("3_1tfyr")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1tfyr"]
+radius = 18.0
+height = 68.0
+
+[node name="Bouncer" type="Node2D" node_paths=PackedStringArray("child", "timer", "damageTimer")]
+script = ExtResource("1_pujbt")
+stats = ExtResource("2_1tfyr")
+child = NodePath("Rigidbody2D")
+timer = NodePath("Timer")
+damageTimer = NodePath("DamageTimer")
+
+[node name="Rigidbody2D" type="RigidBody2D" parent="."]
+collision_layer = 8388608
+collision_mask = 8388608
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rigidbody2D"]
+shape = SubResource("CapsuleShape2D_pujbt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Rigidbody2D"]
+position = Vector2(-1, -2)
+scale = Vector2(1.875, 2.0625)
+texture = SubResource("AtlasTexture_1tfyr")
+
+[node name="Area2D" type="Area2D" parent="Rigidbody2D"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rigidbody2D/Area2D"]
+shape = SubResource("CapsuleShape2D_1tfyr")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="body_entered" from="Rigidbody2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]

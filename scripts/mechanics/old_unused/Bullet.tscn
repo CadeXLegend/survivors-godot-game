@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://02ofuav00md7"]
+
+[ext_resource type="Script" uid="uid://ckl6r6ap02gg4" path="res://scripts/mechanics/old_unused/bullet.gd" id="1_4s4u5"]
+[ext_resource type="Texture2D" uid="uid://cvmbm3sxj85fm" path="res://assets/smoke_explosion/circle_32.png" id="2_4s4u5"]
+[ext_resource type="Resource" uid="uid://cvcur1qibp73k" path="res://resources/skills/staff_basic_attack.tres" id="2_tn5wh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x3e43"]
+radius = 16.0
+
+[node name="Bullet" type="Area2D"]
+top_level = true
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_4s4u5")
+stats = ExtResource("2_tn5wh")
+
+[node name="Projectile" type="Sprite2D" parent="."]
+modulate = Color(0.427572, 0.00115321, 0.604968, 1)
+texture = ExtResource("2_4s4u5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x3e43")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

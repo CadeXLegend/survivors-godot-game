@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cerpikaud450o"]
+
+[ext_resource type="Script" uid="uid://clw46v0amc8qr" path="res://scripts/custom_resources/quantity/quantityVector2.gd" id="1_6sl4y"]
+
+[node name="QuantityVector2" type="Node2D"]
+script = ExtResource("1_6sl4y")

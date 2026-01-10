@@ -1,10 +1,19 @@
-[gd_scene load_steps=18 format=3 uid="uid://dm04qvosp5tu0"]
+[gd_scene load_steps=22 format=3 uid="uid://dm04qvosp5tu0"]
 
 [ext_resource type="Script" uid="uid://d25ilwfuqta5h" path="res://scripts/entities/player.gd" id="1_3eadt"]
 [ext_resource type="Resource" uid="uid://5spkav7akvnv" path="res://resources/entities/player/player_stats.tres" id="2_b0wws"]
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://scripts/PlayerSprite.tscn" id="2_tory2"]
-[ext_resource type="PackedScene" uid="uid://cjt2pljcy5v4f" path="res://scripts/mechanics/Weapon.tscn" id="3_tory2"]
+[ext_resource type="Script" uid="uid://co86c1r1xx3gb" path="res://scripts/mechanics/2d_free_movement_four_directional/2d_free_movement_four_directional.gd" id="3_ftk0g"]
+[ext_resource type="PackedScene" uid="uid://cjt2pljcy5v4f" path="res://scripts/mechanics/old_unused/Weapon.tscn" id="3_tory2"]
+[ext_resource type="Resource" uid="uid://d1qhexgg42wwx" path="res://resources/actions/player_actions.tres" id="4_c4d4v"]
 [ext_resource type="Script" uid="uid://bd6ou7yl33fbn" path="res://addons/polygon2d_tool/polygon_2d_tool.gd" id="5_b0wws"]
+[ext_resource type="Script" uid="uid://b0jdpwn1bs00j" path="res://scripts/custom_resources/quantity/quantity.gd" id="5_lreip"]
+
+[sub_resource type="Resource" id="Resource_jtwqb"]
+script = ExtResource("5_lreip")
+maximum = 1000.0
+current = 200.0
+metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b0wws"]
 radius = 6.0
@@ -50,7 +59,7 @@ texture = SubResource("GradientTexture2D_b0wws")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0wws"]
 size = Vector2(1922, 47)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animationController", "hitbox", "healthBar", "xpBar", "levelLabel")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animationController", "hitbox", "healthBar", "xpBar", "levelLabel", "movementMechanic")]
 process_mode = 3
 z_index = 10
 collision_mask = 3
@@ -63,6 +72,13 @@ hitbox = NodePath("Hitbox")
 healthBar = NodePath("LocalisedPlayerUI/HealthBar")
 xpBar = NodePath("LocalisedPlayerUI/XPBar")
 levelLabel = NodePath("LocalisedPlayerUI/LvlRect/LevelLabel")
+movementMechanic = NodePath("MovementMechanic")
+
+[node name="MovementMechanic" type="Node" parent="." node_paths=PackedStringArray("body")]
+script = ExtResource("3_ftk0g")
+actions = ExtResource("4_c4d4v")
+movementSpeed = SubResource("Resource_jtwqb")
+body = NodePath("..")
 
 [node name="PlayerSprite" parent="." instance=ExtResource("2_tory2")]
 y_sort_enabled = true
@@ -104,7 +120,7 @@ z_index = 1000
 position = Vector2(-7.5, -55.5)
 scale = Vector2(1, 1.1)
 color = Color(0.996078, 0.839216, 0, 1)
-polygon = PackedVector2Array(38.0423, 7.63675, -38.0423, 7.63675, -38.0423, -7.63675, 38.0423, -7.63675, 38.0423, 7.63675)
+polygon = PackedVector2Array(38.042343, 7.636753, -38.042343, 7.636753, -38.042343, -7.636753, 38.042343, -7.636753, 38.042343, 7.636753)
 
 [node name="PolygonTool2D" type="Node2D" parent="LocalisedPlayerUI/Border" node_paths=PackedStringArray("target")]
 position = Vector2(0.47, 0)
@@ -119,7 +135,7 @@ metadata/_custom_type_script = "uid://bd6ou7yl33fbn"
 z_index = 1004
 position = Vector2(-37.8, -56)
 color = Color(0.172833, 0.172833, 0.172833, 1)
-polygon = PackedVector2Array(7.07107, 7.00036, -7.07107, 7.00036, -7.07107, -7.00036, 7.07107, -7.00036, 7.07107, 7.00036)
+polygon = PackedVector2Array(7.071068, 7.0003567, -7.071068, 7.0003567, -7.071068, -7.0003567, 7.071068, -7.0003567, 7.071068, 7.0003567)
 
 [node name="PolygonTool2D" type="Node2D" parent="LocalisedPlayerUI/LvlRect" node_paths=PackedStringArray("target")]
 position = Vector2(0.47, 0)
