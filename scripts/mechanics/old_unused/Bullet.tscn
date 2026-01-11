@@ -1,18 +1,58 @@
-[gd_scene load_steps=5 format=3 uid="uid://02ofuav00md7"]
+[gd_scene load_steps=11 format=3 uid="uid://02ofuav00md7"]
 
-[ext_resource type="Script" uid="uid://ckl6r6ap02gg4" path="res://scripts/mechanics/old_unused/bullet.gd" id="1_4s4u5"]
+[ext_resource type="Script" uid="uid://c8ex0kravevnm" path="res://scripts/mechanics/2d_damage_on_body_entered/2d_damage_on_body_entered.gd" id="1_jjbir"]
 [ext_resource type="Texture2D" uid="uid://cvmbm3sxj85fm" path="res://assets/smoke_explosion/circle_32.png" id="2_4s4u5"]
-[ext_resource type="Resource" uid="uid://cvcur1qibp73k" path="res://resources/skills/staff_basic_attack.tres" id="2_tn5wh"]
+[ext_resource type="Script" uid="uid://crgwc18d6s8eq" path="res://scripts/mechanics/2d_linear_forward_movement/2d_linear_forward_movement.gd" id="2_veh6r"]
+[ext_resource type="Script" uid="uid://dphokgvjqmpke" path="res://scripts/mechanics/damager/damager.gd" id="4_ivyjj"]
+[ext_resource type="Script" uid="uid://dywc2leqicpp4" path="res://scripts/mechanics/terminate_at_distance.gd" id="4_veh6r"]
+[ext_resource type="Script" uid="uid://b0jdpwn1bs00j" path="res://scripts/custom_resources/quantity/quantity.gd" id="5_veh6r"]
+
+[sub_resource type="Resource" id="Resource_veh6r"]
+script = ExtResource("5_veh6r")
+maximum = 100.0
+current = 100.0
+metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
+
+[sub_resource type="Resource" id="Resource_mwnqr"]
+script = ExtResource("5_veh6r")
+maximum = 1.0
+current = 1.0
+metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
+
+[sub_resource type="Resource" id="Resource_ac31d"]
+script = ExtResource("5_veh6r")
+maximum = 1200.0
+metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x3e43"]
 radius = 16.0
 
-[node name="Bullet" type="Area2D"]
+[node name="Bullet" type="Area2D" node_paths=PackedStringArray("damager")]
 top_level = true
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_4s4u5")
-stats = ExtResource("2_tn5wh")
+script = ExtResource("1_jjbir")
+damager = NodePath("Damager")
+
+[node name="LinearForwardMovement2D" type="Node" parent="." node_paths=PackedStringArray("terminateAtDistance", "damager", "area2d")]
+script = ExtResource("2_veh6r")
+movementSpeed = SubResource("Resource_veh6r")
+withCleanup = true
+terminateAtDistance = NodePath("../TerminateAtDistance")
+damager = NodePath("../Damager")
+area2d = NodePath("..")
+metadata/_custom_type_script = "uid://crgwc18d6s8eq"
+
+[node name="Damager" type="Node" parent="."]
+script = ExtResource("4_ivyjj")
+damage = SubResource("Resource_mwnqr")
+metadata/_custom_type_script = "uid://dphokgvjqmpke"
+
+[node name="TerminateAtDistance" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("4_veh6r")
+target = NodePath("..")
+distance = SubResource("Resource_ac31d")
+metadata/_custom_type_script = "uid://dywc2leqicpp4"
 
 [node name="Projectile" type="Sprite2D" parent="."]
 modulate = Color(0.427572, 0.00115321, 0.604968, 1)

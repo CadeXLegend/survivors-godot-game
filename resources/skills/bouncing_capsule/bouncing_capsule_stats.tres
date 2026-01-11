@@ -1,34 +1,11 @@
-[gd_resource type="Resource" script_class="Stats" load_steps=10 format=3 uid="uid://yvn564b2m8fp"]
+[gd_resource type="Resource" script_class="Stats" load_steps=5 format=3 uid="uid://yvn564b2m8fp"]
 
 [ext_resource type="Script" uid="uid://c0i41u05q0ixi" path="res://scripts/stats.gd" id="1_aeuon"]
 [ext_resource type="Script" uid="uid://b0jdpwn1bs00j" path="res://scripts/custom_resources/quantity/quantity.gd" id="1_bsgbn"]
-[ext_resource type="Script" uid="uid://dphokgvjqmpke" path="res://scripts/custom_resources/damager/damager.gd" id="2_3u14j"]
-
-[sub_resource type="Resource" id="Resource_7o5s8"]
-script = ExtResource("1_bsgbn")
-maximum = 2.0
-current = 2.0
-metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
-
-[sub_resource type="Resource" id="Resource_fdxqo"]
-script = ExtResource("2_3u14j")
-metadata/_custom_type_script = "uid://dphokgvjqmpke"
-
-[sub_resource type="Resource" id="Resource_bsgbn"]
-script = ExtResource("1_bsgbn")
-maximum = 3.0
-current = 3.0
-metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
 
 [sub_resource type="Resource" id="Resource_lcuxu"]
 script = ExtResource("1_bsgbn")
 maximum = 1.0
-metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
-
-[sub_resource type="Resource" id="Resource_vp18i"]
-script = ExtResource("1_bsgbn")
-maximum = 800.0
-current = 800.0
 metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
 
 [sub_resource type="Resource" id="Resource_vxl6a"]
@@ -38,10 +15,6 @@ metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
 
 [resource]
 script = ExtResource("1_aeuon")
-health = SubResource("Resource_bsgbn")
-damage = SubResource("Resource_7o5s8")
-damager = SubResource("Resource_fdxqo")
-movementSpeed = SubResource("Resource_vp18i")
 xp = SubResource("Resource_vxl6a")
 level = SubResource("Resource_lcuxu")
 metadata/_custom_type_script = "uid://c0i41u05q0ixi"

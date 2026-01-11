@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dm04qvosp5tu0"]
+[gd_scene load_steps=26 format=3 uid="uid://dm04qvosp5tu0"]
 
 [ext_resource type="Script" uid="uid://d25ilwfuqta5h" path="res://scripts/entities/player.gd" id="1_3eadt"]
 [ext_resource type="Resource" uid="uid://5spkav7akvnv" path="res://resources/entities/player/player_stats.tres" id="2_b0wws"]
@@ -8,11 +8,20 @@
 [ext_resource type="Resource" uid="uid://d1qhexgg42wwx" path="res://resources/actions/player_actions.tres" id="4_c4d4v"]
 [ext_resource type="Script" uid="uid://bd6ou7yl33fbn" path="res://addons/polygon2d_tool/polygon_2d_tool.gd" id="5_b0wws"]
 [ext_resource type="Script" uid="uid://b0jdpwn1bs00j" path="res://scripts/custom_resources/quantity/quantity.gd" id="5_lreip"]
+[ext_resource type="Script" uid="uid://wcxy7fbncimt" path="res://scripts/mechanics/damageable/damageable.gd" id="6_c4d4v"]
+[ext_resource type="Script" uid="uid://bo447b2g8norm" path="res://scripts/entities/slime_mob.gd" id="7_lreip"]
+[ext_resource type="Script" uid="uid://batwqjmfqfjn3" path="res://scripts/mechanics/survivor_like_proximity_damager/survivor_like_proximity_damager.gd" id="8_jtwqb"]
 
 [sub_resource type="Resource" id="Resource_jtwqb"]
 script = ExtResource("5_lreip")
 maximum = 1000.0
 current = 200.0
+metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
+
+[sub_resource type="Resource" id="Resource_lreip"]
+script = ExtResource("5_lreip")
+maximum = 1000.0
+current = 1000.0
 metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b0wws"]
@@ -59,7 +68,7 @@ texture = SubResource("GradientTexture2D_b0wws")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0wws"]
 size = Vector2(1922, 47)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animationController", "hitbox", "healthBar", "xpBar", "levelLabel", "movementMechanic")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animationController", "healthBar", "xpBar", "levelLabel", "movementMechanic", "damageable")]
 process_mode = 3
 z_index = 10
 collision_mask = 3
@@ -68,17 +77,31 @@ slide_on_ceiling = false
 script = ExtResource("1_3eadt")
 stats = ExtResource("2_b0wws")
 animationController = NodePath("PlayerSprite")
-hitbox = NodePath("Hitbox")
 healthBar = NodePath("LocalisedPlayerUI/HealthBar")
 xpBar = NodePath("LocalisedPlayerUI/XPBar")
 levelLabel = NodePath("LocalisedPlayerUI/LvlRect/LevelLabel")
-movementMechanic = NodePath("MovementMechanic")
+movementMechanic = NodePath("Movement")
+damageable = NodePath("Damageable")
 
-[node name="MovementMechanic" type="Node" parent="." node_paths=PackedStringArray("body")]
+[node name="Movement" type="Node" parent="." node_paths=PackedStringArray("body")]
 script = ExtResource("3_ftk0g")
 actions = ExtResource("4_c4d4v")
 movementSpeed = SubResource("Resource_jtwqb")
 body = NodePath("..")
+
+[node name="Damageable" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("6_c4d4v")
+target = NodePath("..")
+health = SubResource("Resource_lreip")
+damageableBy = {
+ExtResource("7_lreip"): true
+}
+
+[node name="ProximityDamager" type="Node" parent="." node_paths=PackedStringArray("hitbox", "recipientNode", "damageable")]
+script = ExtResource("8_jtwqb")
+hitbox = NodePath("../Hitbox")
+recipientNode = NodePath("..")
+damageable = NodePath("../Damageable")
 
 [node name="PlayerSprite" parent="." instance=ExtResource("2_tory2")]
 y_sort_enabled = true

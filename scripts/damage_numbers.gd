@@ -17,7 +17,7 @@ extends Resource
 
 @export var secondPropertyToAnimate: String = "scale"
 
-func display_number(value: float, position: Vector2, receiver: Node2D, isCritical: bool = false):
+func display_number(value: float, position: Vector2, receiver: Node, isCritical: bool = false):
 	var node: Node2D = Node2D.new()
 	var sceneRoot: Node2D = receiver.get_tree().current_scene
 	var number: Label = Label.new()

@@ -4,7 +4,7 @@ extends Area2D
 @export var bullet: PackedScene
 
 func _physics_process(_delta: float) -> void:
-	if entity_tracker.player().stats.health.current <= entity_tracker.player().stats.health.minimum:
+	if entity_tracker.player().damageable.health.current <= entity_tracker.player().damageable.health.minimum:
 		return
 	
 	look_at(get_global_mouse_position())
