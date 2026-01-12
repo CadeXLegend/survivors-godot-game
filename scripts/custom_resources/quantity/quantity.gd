@@ -8,6 +8,7 @@ extends Resource
 # an optional parameter that allows for the overflow diff from maximum
 # to be stored and used later, very useful!
 var overflow: float = 0.0
+var negative_overflow: float = 0.0
 # to track when there's no hp left vs while at min
 # single event fire vs continuous bool state
 var previous_removed_current: float = minimum + 1.0
@@ -53,6 +54,8 @@ func remove(value: float) -> void:
 	if value <= 0:
 		return
 
+	if value > current:
+		negative_overflow = value - current
 	current -= value
 
 	at_minimum = current <= minimum

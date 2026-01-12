@@ -9,14 +9,15 @@ func _physics_process(delta: float) -> void:
 	if nodes.size() <= 0: return
 	
 	var damageables = damager.try_get_damageables(nodes)
-	print(damageables)
 	if damageables.size() <= 0: return
-	print(damageables)
 	_execute_damage_step(damageables)
 
 
 func _execute_damage_step(damageables: Array[Damageable]) -> void:
 	for damageable in damageables:
-		damager.deal_damage(damager.damage.current, damageable.health, damageable.target)
+		damager.deal_damage(
+			damager.damage.current, 
+			damageable.health, 
+			damageable.target)
 	if not is_queued_for_deletion():
 		queue_free()

@@ -4,6 +4,7 @@ extends Resource
 @export var labelSettings: LabelSettings
 @export var normalColour: Color
 @export var criticalColour: Color
+@export var overflowColour: Color
 @export var noDamageColour: Color
 @export var outlineColour: Color
 @export var outlineSize: int = 18
@@ -17,7 +18,7 @@ extends Resource
 
 @export var secondPropertyToAnimate: String = "scale"
 
-func display_number(value: float, position: Vector2, receiver: Node, isCritical: bool = false):
+func display_number(value: float, position: Vector2, receiver: Node, isCritical: bool = false, isOverflow: bool = false):
 	var node: Node2D = Node2D.new()
 	var sceneRoot: Node2D = receiver.get_tree().current_scene
 	var number: Label = Label.new()
@@ -27,7 +28,9 @@ func display_number(value: float, position: Vector2, receiver: Node, isCritical:
 	number.z_index = 128
 
 	labelSettings.font_color = noDamageColour if value == 0.0 else \
-		 criticalColour if isCritical else normalColour
+		 criticalColour if isCritical else \
+		 overflowColour if isOverflow else \
+		 normalColour
 
 	number.label_settings = labelSettings
 	

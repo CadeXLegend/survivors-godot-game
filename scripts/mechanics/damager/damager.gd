@@ -12,9 +12,11 @@ func deal_damage(amount: float, stat: Quantity, target: Node) -> void:
 	stat.remove(amount)
 	if useDamageNumbers:
 		game_state_responder.damageNumbers.display_number(
-			amount, 
-			target.global_position, 
-			target)
+			amount,
+			target.global_position,
+			target,
+			false,
+			stat.negative_overflow > 0.0)
 	post_damage_step.emit()
 
 func try_get_damageables(nodes: Array[Node2D]) -> Array[Damageable]:
