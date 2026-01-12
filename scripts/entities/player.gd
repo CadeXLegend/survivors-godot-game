@@ -34,7 +34,7 @@ func _ready():
 	movementMechanic.action.onActionEnd.connect(_on_movement_ended)
 	movementMechanic.optionalRunConditions = [_is_health_above_min]
 
-func _is_health_above_min() -> bool: return damageable.health.at_minimum
+func _is_health_above_min() -> bool: return !damageable.health.at_minimum
 
 func _on_movement_ended():
 	if movementMechanic.isVelocityAboveZero and movementMechanic.isInputBeingPressed:

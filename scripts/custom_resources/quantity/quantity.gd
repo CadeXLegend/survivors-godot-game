@@ -8,6 +8,9 @@ extends Resource
 # an optional parameter that allows for the overflow diff from maximum
 # to be stored and used later, very useful!
 var overflow: float = 0.0
+# to track when there's no hp left vs while at min
+# single event fire vs continuous bool state
+var previous_removed_current: float = minimum + 1.0
 
 # these are the core events correlated to any given quantity
 signal gained
@@ -20,7 +23,7 @@ signal maximum_decreased
 signal overflow_cleared
 signal overflow_added
 
-var at_minimum: bool = true
+var at_minimum: bool = false
 
 # these are the core functions used to control the quantity
 # which then also correlate to the emitting of related events
@@ -51,13 +54,18 @@ func remove(value: float) -> void:
 		return
 
 	current -= value
-	modified.emit()
-	lost.emit()
-	
+
 	at_minimum = current <= minimum
 	if at_minimum:
 		current = minimum
-		none_left.emit()
+		if previous_removed_current != minimum:
+			none_left.emit()
+			previous_removed_current = minimum
+		return
+
+	modified.emit()
+	lost.emit()
+	previous_removed_current = current
 		
 func set_to(value: float) -> void:
 	if value > current:
