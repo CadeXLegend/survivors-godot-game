@@ -5,5 +5,6 @@ extends Node
 @export var distance: Quantity
 
 func _ready() -> void:
+	distance = distance.duplicate_deep(Resource.DEEP_DUPLICATE_ALL)
 	distance.full.connect(func(): if not target.is_queued_for_deletion(): target.queue_free())
 	distance.full.connect(func(): distance.set_to(0))

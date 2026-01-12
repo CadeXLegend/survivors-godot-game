@@ -17,20 +17,19 @@ func deal_damage(amount: float, stat: Quantity, target: Node) -> void:
 			target)
 	post_damage_step.emit()
 
-func try_get_damageable(node: Node) -> Damageable:
-	if not _is_damageable(node): return null
-	return _find_damageable(node)
+func try_get_damageables(nodes: Array[Node2D]) -> Array[Damageable]:
+	var damageables: Array[Damageable] = []
+	damageables.assign((nodes
+	.map(func(node: Node): return try_get_damageable(node))
+	.filter(func(damageable: Damageable): return damageable != null)))
+	return damageables
 
-func _find_damageable(node: Node) -> Damageable:
-	print("searching...")
-	if _is_damageable(node): return node.get_script() as Damageable
+func try_get_damageable(node: Node) -> Damageable:
+	if _is_damageable(node): return node as Damageable
 	for child in node.get_children():
 		if _is_damageable(child):
-			print("yeah we found it")
-			return child.get_script() as Damageable
+			return child as Damageable
 	return null
-	#var index = node.get_children().find(func(child: Node): return _is_damageable(child))
-	#return node.get_child(index).get_script() as Damageable if index > -1 else null
 
 func _is_damageable(node: Node) -> bool:
-	return node.get_script() is Damageable
+	return node is Damageable

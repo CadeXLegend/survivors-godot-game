@@ -28,11 +28,23 @@ func _find_damager(node: Node) -> Damager:
 		if _is_damager(child):
 			return child
 	return null
-	#var index = node.get_children().find(func(child: Node): return _is_damager(child))
-	#return node.get_child(index).get_script() as Damager if index > -1 else null
 
 func _is_damager(node: Node) -> bool:
 	return node is Damager
 
 func _is_damageable_by(node: Node) -> bool:
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	return damageableBy.has(node.get_script())

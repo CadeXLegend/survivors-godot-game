@@ -27,12 +27,10 @@ metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
 [sub_resource type="CircleShape2D" id="CircleShape2D_x3e43"]
 radius = 16.0
 
-[node name="Bullet" type="Area2D" node_paths=PackedStringArray("damager")]
+[node name="Bullet" type="Area2D"]
 top_level = true
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_jjbir")
-damager = NodePath("Damager")
 
 [node name="LinearForwardMovement2D" type="Node" parent="." node_paths=PackedStringArray("terminateAtDistance", "damager", "area2d")]
 script = ExtResource("2_veh6r")
@@ -42,6 +40,12 @@ terminateAtDistance = NodePath("../TerminateAtDistance")
 damager = NodePath("../Damager")
 area2d = NodePath("..")
 metadata/_custom_type_script = "uid://crgwc18d6s8eq"
+
+[node name="DamageOnBodyEntered2D" type="Node" parent="." node_paths=PackedStringArray("area2d", "damager")]
+script = ExtResource("1_jjbir")
+area2d = NodePath("..")
+damager = NodePath("../Damager")
+metadata/_custom_type_script = "uid://c8ex0kravevnm"
 
 [node name="Damager" type="Node" parent="."]
 script = ExtResource("4_ivyjj")
@@ -60,5 +64,3 @@ texture = ExtResource("2_4s4u5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_x3e43")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

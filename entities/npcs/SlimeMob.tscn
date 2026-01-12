@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://fwh08w4uiktb"]
+[gd_scene load_steps=14 format=3 uid="uid://fwh08w4uiktb"]
 
 [ext_resource type="Script" uid="uid://bo447b2g8norm" path="res://scripts/entities/slime_mob.gd" id="1_yyvdd"]
 [ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://entities/characters/slime/slime.tscn" id="2_gw1rl"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bn3ikulmlttec" path="res://assets/audio/zapsplat_cartoon_slime_drip_single_004_50314.mp3" id="4_km64x"]
 [ext_resource type="Script" uid="uid://wcxy7fbncimt" path="res://scripts/mechanics/damageable/damageable.gd" id="4_yyvdd"]
 [ext_resource type="Script" uid="uid://b0jdpwn1bs00j" path="res://scripts/custom_resources/quantity/quantity.gd" id="5_kw8gh"]
+[ext_resource type="Script" uid="uid://c8ex0kravevnm" path="res://scripts/mechanics/2d_damage_on_body_entered/2d_damage_on_body_entered.gd" id="7_1jlmq"]
 
 [sub_resource type="Resource" id="Resource_kw8gh"]
 script = ExtResource("5_kw8gh")
@@ -50,6 +51,9 @@ damage = SubResource("Resource_1jlmq")
 script = ExtResource("4_yyvdd")
 target = NodePath("..")
 health = SubResource("Resource_gw1rl")
+damageableBy = {
+ExtResource("7_1jlmq"): true
+}
 metadata/_custom_type_script = "uid://wcxy7fbncimt"
 
 [node name="Slime" parent="." instance=ExtResource("2_gw1rl")]

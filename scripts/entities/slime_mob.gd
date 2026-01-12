@@ -33,8 +33,6 @@ func on_health_lost() -> void:
 	hitSFX.play()
 
 func on_health_none_left() -> void:
+	if not is_queued_for_deletion():
 		queue_free()
-		droptable.drop_at(global_position, currentScene)
-
-func enemy():
-	pass
+	droptable.drop_at(global_position, currentScene)
