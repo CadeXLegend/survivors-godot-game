@@ -110,6 +110,10 @@ folder_colors={
 "res://scripts/": "purple"
 }
 
+[filesystem]
+
+import/blender/enabled=false
+
 [global_group]
 
 Players="Group of all player nodes"

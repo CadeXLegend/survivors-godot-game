@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://5420sto1sxur"
+path="res://.godot/imported/Cabbage.obj-bf28e1b9eb92fd4ffc38d959cf2f3630.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Cabbage.obj-bf28e1b9eb92fd4ffc38d959cf2f3630.mesh"]
+
+source_file="res://assets/Buildings_RTS/OBJ/Cabbage.obj"
+dest_files=["res://.godot/imported/Cabbage.obj-bf28e1b9eb92fd4ffc38d959cf2f3630.mesh", "res://.godot/imported/Cabbage.obj-bf28e1b9eb92fd4ffc38d959cf2f3630.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

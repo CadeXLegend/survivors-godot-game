@@ -6,12 +6,8 @@ extends Node
 @export var movementSpeed: Quantity
 var acceleration: float = 0.0
 
-const walk = actions.Movement.WALK
 var optionalRunConditions: Array[Callable]
 var action: InputActionBinding
-
-func _ready() -> void:
-	action = actions.movements[walk]
 
 func _physics_process(_delta: float) -> void:
 	_implementation(_delta)
@@ -36,5 +32,12 @@ func _implementation(_delta: float):
 	else:
 		inputVectors.y += node.position.z
 	
-	var movementDirection: Vector3 = Vector3(inputVectors.x, node.position.y, inputVectors.y)
+	var y = node.position.y
+	
+	if Input.is_key_pressed(KEY_Q):
+		y = node.position.y - 1
+	if Input.is_key_pressed(KEY_E):
+		y = node.position.y + 1
+	
+	var movementDirection: Vector3 = Vector3(inputVectors.x, y, inputVectors.y)
 	node.position = lerp(node.position, movementDirection, _delta * movementSpeed.current + acceleration)

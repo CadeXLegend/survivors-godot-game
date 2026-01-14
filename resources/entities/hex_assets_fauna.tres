@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Droptable" load_steps=6 format=3 uid="uid://hv0bvoek7ewj"]
+
+[ext_resource type="Script" uid="uid://cwcq3e321esnl" path="res://scripts/droptable.gd" id="1_t7pxp"]
+[ext_resource type="PackedScene" uid="uid://2gw1py1h7ccq" path="res://assets/MonstersPack_Ps1/FBX/EaterPlant.fbx" id="2_3id7f"]
+[ext_resource type="PackedScene" uid="uid://cixupejk6vkyf" path="res://assets/MonstersPack_Ps1/FBX/Rat.fbx" id="3_nw3h2"]
+[ext_resource type="PackedScene" uid="uid://db5xoeei8n7ux" path="res://assets/MonstersPack_Ps1/FBX/Spider.fbx" id="4_f15t0"]
+[ext_resource type="PackedScene" uid="uid://c4gufdsg8xdia" path="res://assets/MonstersPack_Ps1/FBX/Wasp.fbx" id="5_yu44u"]
+
+[resource]
+script = ExtResource("1_t7pxp")
+drops = Array[PackedScene]([ExtResource("2_3id7f"), ExtResource("3_nw3h2"), ExtResource("4_f15t0"), ExtResource("5_yu44u")])
+metadata/_custom_type_script = "uid://cwcq3e321esnl"

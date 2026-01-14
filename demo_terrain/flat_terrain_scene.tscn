@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c7u64tpv6byvb"]
+[gd_scene load_steps=26 format=3 uid="uid://c7u64tpv6byvb"]
 
 [ext_resource type="Script" uid="uid://cesf3dtykb3pa" path="res://addons/post_processing/node/post_process.gd" id="1_781qp"]
 [ext_resource type="Texture2D" uid="uid://cdx7ceoux78g0" path="res://demo_terrain/textures/yellow_grass.png" id="2_diq8e"]
@@ -14,9 +14,13 @@
 [ext_resource type="FastNoiseLite" uid="uid://cgxvojmlhcxha" path="res://demo_terrain/resources/rect_terrain_biomes_noise.tres" id="7_pdqbd"]
 [ext_resource type="FastNoiseLite" uid="uid://b0o4avj71sfcj" path="res://demo_terrain/resources/rect_terrain_plain_noise.tres" id="8_tlppm"]
 [ext_resource type="FastNoiseLite" uid="uid://beit0r3ccwphn" path="res://demo_terrain/resources/rect_terrain_mountain_noise.tres" id="9_6vlvq"]
-[ext_resource type="Script" uid="uid://cw3abxlpjtjk4" path="res://demo_terrain/highlight_hex_tile_on_grid.gd" id="12_jgh0i"]
+[ext_resource type="Script" uid="uid://cw3abxlpjtjk4" path="res://scripts/hex_grid_utils/highlight_hex_tile_on_grid.gd" id="12_jgh0i"]
 [ext_resource type="Script" uid="uid://bw0rxpg0mbanv" path="res://scripts/mechanics/camera_movement_panning/simple_camera_movement.gd" id="14_7phjy"]
 [ext_resource type="Resource" uid="uid://c0dsfxhwb8bwe" path="res://addons/post_processing/resource/no_effects_example.tres" id="14_ttnod"]
+[ext_resource type="Script" uid="uid://cl1b7hreqem6f" path="res://spawnables.gd" id="18_4c801"]
+[ext_resource type="Resource" uid="uid://hv0bvoek7ewj" path="res://resources/entities/hex_assets_fauna.tres" id="19_ph3da"]
+[ext_resource type="Script" uid="uid://c73jjrf3ko8ij" path="res://scripts/hex_grid_utils/populate_hexes.gd" id="20_rjlo4"]
+[ext_resource type="Resource" uid="uid://bwq3eyckih55o" path="res://resources/entities/hex_assets_flora.tres" id="21_7s1ai"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dbx8v"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -38,7 +42,7 @@ maximum = 1.0
 current = 1.0
 metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
 
-[node name="Node3D" type="Node3D"]
+[node name="Scene" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.5, -1.49012e-08, -0.866025, 0.433013, 0.866025, 0.25, 0.75, -0.5, 0.433013, -2, 3, 5)
@@ -74,6 +78,8 @@ _divisions = 4
 _shader = ExtResource("6_8c8ug")
 script = ExtResource("12_jgh0i")
 camera = NodePath("../Camera3D")
+flat_tile_color = Color(1, 0.7764706, 0, 0.5647059)
+ridge_tile_color = Color(1, 0, 0.27058825, 0.5372549)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.64278764, 0.76604444, 0, -0.76604444, 0.64278764, 22.438002, 4.1559987, 25.267448)
@@ -89,3 +95,21 @@ metadata/_custom_type_script = "uid://bw0rxpg0mbanv"
 script = ExtResource("1_781qp")
 configuration = ExtResource("14_ttnod")
 metadata/_custom_type_script = "uid://cesf3dtykb3pa"
+
+[node name="Spawnables_Flora" type="Node" parent="."]
+script = ExtResource("18_4c801")
+table = ExtResource("21_7s1ai")
+metadata/_custom_type_script = "uid://cl1b7hreqem6f"
+
+[node name="Spawnables_Fauna" type="Node" parent="."]
+script = ExtResource("18_4c801")
+table = ExtResource("19_ph3da")
+
+[node name="PopulateHexes" type="Node" parent="." node_paths=PackedStringArray("grid", "flora", "fauna")]
+script = ExtResource("20_rjlo4")
+grid = NodePath("../HexagonalRidgeHexGrid")
+flora = NodePath("../Spawnables_Flora")
+fauna = NodePath("../Spawnables_Fauna")
+amountOfFloraToSpawn = 100
+amountOfFaunaToSpawn = 60
+metadata/_custom_type_script = "uid://c73jjrf3ko8ij"

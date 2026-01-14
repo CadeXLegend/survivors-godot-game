@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bmeduhn65guce"
+path="res://.godot/imported/Wall_Level1_BlueTeam.obj-1190f292111d03e2ac87d38486d687bd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Wall_Level1_BlueTeam.obj-1190f292111d03e2ac87d38486d687bd.mesh"]
+
+source_file="res://assets/Buildings_RTS/OBJ/Wall_Level1_BlueTeam.obj"
+dest_files=["res://.godot/imported/Wall_Level1_BlueTeam.obj-1190f292111d03e2ac87d38486d687bd.mesh", "res://.godot/imported/Wall_Level1_BlueTeam.obj-1190f292111d03e2ac87d38486d687bd.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

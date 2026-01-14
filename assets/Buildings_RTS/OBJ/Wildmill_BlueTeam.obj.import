@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://tpeaetr1g2r1"
+path="res://.godot/imported/Wildmill_BlueTeam.obj-3399a0e190e54d85f61c64351c7a27dd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Wildmill_BlueTeam.obj-3399a0e190e54d85f61c64351c7a27dd.mesh"]
+
+source_file="res://assets/Buildings_RTS/OBJ/Wildmill_BlueTeam.obj"
+dest_files=["res://.godot/imported/Wildmill_BlueTeam.obj-3399a0e190e54d85f61c64351c7a27dd.mesh", "res://.godot/imported/Wildmill_BlueTeam.obj-3399a0e190e54d85f61c64351c7a27dd.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

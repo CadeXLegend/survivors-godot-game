@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://5pwxr1y42xka"
+path="res://.godot/imported/WatermelonPlant_Stage01.obj-a035286a621f2ce520e83fff442b2e1a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/WatermelonPlant_Stage01.obj-a035286a621f2ce520e83fff442b2e1a.mesh"]
+
+source_file="res://assets/EnvironomentPackV_2/OBJ/WatermelonPlant_Stage01.obj"
+dest_files=["res://.godot/imported/WatermelonPlant_Stage01.obj-a035286a621f2ce520e83fff442b2e1a.mesh", "res://.godot/imported/WatermelonPlant_Stage01.obj-a035286a621f2ce520e83fff442b2e1a.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
