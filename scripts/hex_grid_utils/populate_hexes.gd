@@ -4,12 +4,15 @@ extends Node
 @export var grid: HexagonalRidgeHexGrid
 @export var flora: Spawnables
 @export var fauna: Spawnables
+@export var buildings: Spawnables
 @export var amountOfFloraToSpawn: int
 @export var amountOfFaunaToSpawn: int
+@export var amountOfBuildingsToSpawn: int
 
 func _ready() -> void:
 	populate_at_random(amountOfFloraToSpawn, flora)
 	populate_at_random(amountOfFaunaToSpawn, fauna)
+	populate_at_random(amountOfBuildingsToSpawn, buildings)
 
 func populate_at_random(count: int, spawnables: Spawnables):
 	var available = grid.get_hex_meshes().duplicate()

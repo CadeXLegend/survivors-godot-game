@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c7u64tpv6byvb"]
+[gd_scene load_steps=27 format=3 uid="uid://c7u64tpv6byvb"]
 
 [ext_resource type="Script" uid="uid://cesf3dtykb3pa" path="res://addons/post_processing/node/post_process.gd" id="1_781qp"]
 [ext_resource type="Texture2D" uid="uid://cdx7ceoux78g0" path="res://demo_terrain/textures/yellow_grass.png" id="2_diq8e"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://cl1b7hreqem6f" path="res://spawnables.gd" id="18_4c801"]
 [ext_resource type="Resource" uid="uid://hv0bvoek7ewj" path="res://resources/entities/hex_assets_fauna.tres" id="19_ph3da"]
 [ext_resource type="Script" uid="uid://c73jjrf3ko8ij" path="res://scripts/hex_grid_utils/populate_hexes.gd" id="20_rjlo4"]
+[ext_resource type="Resource" uid="uid://71s4bp0wkw8h" path="res://resources/entities/hex_assets_buildings.tres" id="21_1kwst"]
 [ext_resource type="Resource" uid="uid://bwq3eyckih55o" path="res://resources/entities/hex_assets_flora.tres" id="21_7s1ai"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dbx8v"]
@@ -105,11 +106,17 @@ metadata/_custom_type_script = "uid://cl1b7hreqem6f"
 script = ExtResource("18_4c801")
 table = ExtResource("19_ph3da")
 
-[node name="PopulateHexes" type="Node" parent="." node_paths=PackedStringArray("grid", "flora", "fauna")]
+[node name="Spawnables_Buildings" type="Node" parent="."]
+script = ExtResource("18_4c801")
+table = ExtResource("21_1kwst")
+
+[node name="PopulateHexes" type="Node" parent="." node_paths=PackedStringArray("grid", "flora", "fauna", "buildings")]
 script = ExtResource("20_rjlo4")
 grid = NodePath("../HexagonalRidgeHexGrid")
 flora = NodePath("../Spawnables_Flora")
 fauna = NodePath("../Spawnables_Fauna")
+buildings = NodePath("../Spawnables_Buildings")
 amountOfFloraToSpawn = 100
 amountOfFaunaToSpawn = 60
+amountOfBuildingsToSpawn = 12
 metadata/_custom_type_script = "uid://c73jjrf3ko8ij"

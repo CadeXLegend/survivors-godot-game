@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Droptable" load_steps=11 format=3 uid="uid://71s4bp0wkw8h"]
+
+[ext_resource type="Script" uid="uid://cwcq3e321esnl" path="res://scripts/droptable.gd" id="1_mbcdp"]
+[ext_resource type="PackedScene" uid="uid://nygxa6lu7yko" path="res://assets/Buildings_RTS/FBX/Blacksmith_RedTeam.fbx" id="4_e7rjg"]
+[ext_resource type="PackedScene" uid="uid://cbwh0ie8byxve" path="res://assets/Buildings_RTS/FBX/Church_RedTeam.fbx" id="5_gti8j"]
+[ext_resource type="PackedScene" uid="uid://cmb4i0d6o0ce3" path="res://assets/Buildings_RTS/FBX/GuardsBarracks_RedTeam.fbx" id="6_oliu5"]
+[ext_resource type="PackedScene" uid="uid://bcq7omc8buhwd" path="res://assets/Buildings_RTS/FBX/House_Level1_BlueTeam.fbx" id="7_13rrp"]
+[ext_resource type="PackedScene" uid="uid://d3ouyuih1ql04" path="res://assets/Buildings_RTS/FBX/House_Level2_BlueTeam.fbx" id="8_sr70g"]
+[ext_resource type="PackedScene" uid="uid://bu6a07qyupq8" path="res://assets/Buildings_RTS/FBX/LumberMill_RedTeam.fbx" id="9_rvwmt"]
+[ext_resource type="PackedScene" uid="uid://cbscpqwtd26w4" path="res://assets/Buildings_RTS/FBX/Market_RedTeam.fbx" id="10_k52fy"]
+[ext_resource type="PackedScene" uid="uid://vickyxd3y6vh" path="res://assets/Buildings_RTS/FBX/Stables_RedTeam.fbx" id="11_vc17y"]
+[ext_resource type="PackedScene" uid="uid://cljwtmoi25xi1" path="res://assets/Buildings_RTS/FBX/Wildmill_RedTeam.fbx" id="12_b8q4x"]
+
+[resource]
+script = ExtResource("1_mbcdp")
+drops = Array[PackedScene]([ExtResource("4_e7rjg"), ExtResource("5_gti8j"), ExtResource("6_oliu5"), ExtResource("7_13rrp"), ExtResource("8_sr70g"), ExtResource("9_rvwmt"), ExtResource("10_k52fy"), ExtResource("11_vc17y"), ExtResource("12_b8q4x")])
+metadata/_custom_type_script = "uid://cwcq3e321esnl"

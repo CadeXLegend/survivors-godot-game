@@ -29,11 +29,24 @@ static func get_object_to_hex_scale(hex_mesh: HexMesh, object: Node, grid: Node,
 
 static func get_hex_surface_y(mesh: HexMesh, grid: Node) -> float:
 	var vertices = mesh.get_vertices()
-	var max_y = -INF
-	for v in vertices:
-		max_y = max(max_y, v.y)
+	var surface_ys = []
 	
-	return max_y + grid.global_position.y + 0.1 # small offset
+	# Filter to "surface" vertices (top layer, not sides)
+	for v in vertices:
+		if v.y > -0.1:  # Ignore bottom/side vertices
+			surface_ys.append(v.y)
+	
+	if surface_ys.is_empty():
+		return 0.1  # Safe fallback
+	
+	# Average of surface vertices + small offset
+	var avg_surface_y = 0.0
+	for y in surface_ys:
+		avg_surface_y += y
+	avg_surface_y /= surface_ys.size()
+	
+	return avg_surface_y + grid.global_position.y + 0.2  # Higher offset for buildings
+
 
 static func is_ridge_tile(mesh: HexMesh) -> bool:
 	var vertices = mesh.get_vertices()
