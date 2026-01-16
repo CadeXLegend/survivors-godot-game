@@ -18,5 +18,6 @@ GrainPower = 20
 particle_storm_color = Color(1, 1, 1, 1)
 particle_storm_scale = 4.4350000000000005
 particle_storm_density = 4.0
-PixelatePixelSize = 3
+Pixelate = true
+PixelatePixelSize = 4
 AnalogMonitorResolution = Vector2(1024, 1024)

@@ -1,0 +1,376 @@
+{
+  "assets": [
+    {
+      "hex_index": 997,
+      "position": "(21.65064, 0.257617, 19.5)",
+      "rotation_y": 270.0,
+      "scale": "(0.52, 0.52, 0.52)",
+      "scene_path": "res://assets/Buildings_RTS/FBX/Church_BlueTeam.fbx"
+    },
+    {
+      "hex_index": 1045,
+      "position": "(22.94969, 0.239954, 20.25)",
+      "rotation_y": 299.999969482422,
+      "scale": "(0.52, 0.52, 0.52)",
+      "scene_path": "res://assets/Buildings_RTS/FBX/House_Level1_BlueTeam.fbx"
+    },
+    {
+      "hex_index": 1046,
+      "position": "(23.81569, 0.245958, 20.25)",
+      "rotation_y": 270.0,
+      "scale": "(0.52, 0.52, 0.52)",
+      "scene_path": "res://assets/Buildings_RTS/FBX/House_Level1_BlueTeam.fbx"
+    },
+    {
+      "hex_index": 1093,
+      "position": "(25.11476, 0.233705, 21.0)",
+      "rotation_y": 180.0,
+      "scale": "(0.52, 0.52, 0.52)",
+      "scene_path": "res://assets/Buildings_RTS/FBX/House_Level1_BlueTeam.fbx"
+    },
+    {
+      "hex_index": 765,
+      "position": "(27.2798, 0.255019, 15.75)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/ChiliPlant_Stage03.fbx"
+    },
+    {
+      "hex_index": 950,
+      "position": "(22.08364, 0.250009, 18.75)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Bush_02.fbx"
+    },
+    {
+      "hex_index": 902,
+      "position": "(22.51664, 0.266475, 18.0)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Bush_02.fbx"
+    },
+    {
+      "hex_index": 852,
+      "position": "(21.21763, 0.24726, 17.25)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Bush_02.fbx"
+    },
+    {
+      "hex_index": 804,
+      "position": "(20.78458, 0.23224, 16.5)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Bush_02.fbx"
+    },
+    {
+      "hex_index": 759,
+      "position": "(22.08364, 0.23982, 15.75)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Bush_02.fbx"
+    },
+    {
+      "hex_index": 713,
+      "position": "(21.65064, 0.254627, 15.0)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Bush_02.fbx"
+    },
+    {
+      "hex_index": 903,
+      "position": "(23.38269, 0.253617, 18.0)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Bush_02.fbx"
+    },
+    {
+      "hex_index": 952,
+      "position": "(23.81569, 0.260504, 18.75)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Bush_02.fbx"
+    },
+    {
+      "hex_index": 714,
+      "position": "(22.51664, 0.262494, 15.0)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Bush_02.fbx"
+    },
+    {
+      "hex_index": 854,
+      "position": "(22.94969, 0.238584, 17.25)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Bush_02.fbx"
+    },
+    {
+      "hex_index": 901,
+      "position": "(21.65064, 0.245491, 18.0)",
+      "rotation_y": 254.999984741211,
+      "scale": "(0.66, 0.66, 0.66)",
+      "scene_path": "res://assets/MonstersPack_Ps1/FBX/EaterPlant.fbx"
+    },
+    {
+      "hex_index": 851,
+      "position": "(20.3516, 0.241212, 17.25)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.8, 1.8, 1.8)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Bush_02.fbx"
+    },
+    {
+      "hex_index": 1264,
+      "position": "(24.24872, 0.33289, 24.0)",
+      "rotation_y": 314.999969482422,
+      "scale": "(1.14, 1.14, 1.14)",
+      "scene_path": "res://assets/MonstersPack_Ps1/FBX/Spider.fbx"
+    },
+    {
+      "hex_index": 996,
+      "position": "(20.78458, 0.246444, 19.5)",
+      "rotation_y": 314.999969482422,
+      "scale": "(1.04, 1.04, 1.04)",
+      "scene_path": "res://assets/Buildings_RTS/FBX/Market_BlueTeam.fbx"
+    },
+    {
+      "hex_index": 1002,
+      "position": "(25.98074, 0.264103, 19.5)",
+      "rotation_y": 209.999984741211,
+      "scale": "(0.58, 0.58, 0.58)",
+      "scene_path": "res://assets/Buildings_RTS/FBX/Wildmill_BlueTeam.fbx"
+    },
+    {
+      "hex_index": 999,
+      "position": "(23.38269, 0.248604, 19.5)",
+      "rotation_y": 299.999969482422,
+      "scale": "(0.58, 0.58, 0.58)",
+      "scene_path": "res://assets/Buildings_RTS/FBX/LumberMill_BlueTeam.fbx"
+    },
+    {
+      "hex_index": 1170,
+      "position": "(15.58846, 0.24783, 22.5)",
+      "rotation_y": 689.999938964844,
+      "scale": "(0.7, 0.7, 0.7)",
+      "scene_path": "res://assets/MonstersPack_Ps1/FBX/Wasp.fbx"
+    },
+    {
+      "hex_index": 1082,
+      "position": "(15.58846, 0.245757, 21.0)",
+      "rotation_y": 569.999938964844,
+      "scale": "(0.7, 0.7, 0.7)",
+      "scene_path": "res://assets/MonstersPack_Ps1/FBX/Wasp.fbx"
+    },
+    {
+      "hex_index": 1128,
+      "position": "(16.88747, 0.269784, 21.75)",
+      "rotation_y": 809.999938964844,
+      "scale": "(0.7, 0.7, 0.7)",
+      "scene_path": "res://assets/MonstersPack_Ps1/FBX/Wasp.fbx"
+    },
+    {
+      "hex_index": 1222,
+      "position": "(23.81569, 0.271412, 23.25)",
+      "rotation_y": 254.999984741211,
+      "scale": "(0.45, 0.45, 0.45)",
+      "scene_path": "res://assets/Buildings_RTS/FBX/Stable_BlueTeam.fbx"
+    },
+    {
+      "hex_index": 1090,
+      "position": "(22.51664, 0.236297, 21.0)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/StrawberryPlant_Stage_03.fbx"
+    },
+    {
+      "hex_index": 1265,
+      "position": "(25.11476, 0.24553, 24.0)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Plant_03.fbx"
+    },
+    {
+      "hex_index": 1224,
+      "position": "(25.54774, 0.259473, 23.25)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Plant_03.fbx"
+    },
+    {
+      "hex_index": 1342,
+      "position": "(22.51664, 0.253325, 25.5)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Plant_03.fbx"
+    },
+    {
+      "hex_index": 1306,
+      "position": "(25.54774, 0.253371, 24.75)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Plant_03.fbx"
+    },
+    {
+      "hex_index": 1381,
+      "position": "(22.94969, 0.26721, 26.25)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Plant_03.fbx"
+    },
+    {
+      "hex_index": 1382,
+      "position": "(23.81569, 0.244155, 26.25)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Plant_03.fbx"
+    },
+    {
+      "hex_index": 1307,
+      "position": "(26.41377, 0.263456, 24.75)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Plant_03.fbx"
+    },
+    {
+      "hex_index": 1460,
+      "position": "(27.2798, 0.254717, 27.75)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Plant_03.fbx"
+    },
+    {
+      "hex_index": 1496,
+      "position": "(27.71278, 0.274495, 28.5)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Plant_03.fbx"
+    },
+    {
+      "hex_index": 1495,
+      "position": "(26.84681, 0.246448, 28.5)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Plant_03.fbx"
+    },
+    {
+      "hex_index": 1529,
+      "position": "(26.41377, 0.237338, 29.25)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Plant_03.fbx"
+    },
+    {
+      "hex_index": 1563,
+      "position": "(26.84681, 0.256983, 30.0)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Plant_03.fbx"
+    },
+    {
+      "hex_index": 1564,
+      "position": "(27.71278, 0.271991, 30.0)",
+      "rotation_y": 254.999984741211,
+      "scale": "(1.71, 1.71, 1.71)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Plant_03.fbx"
+    },
+    {
+      "hex_index": 1419,
+      "position": "(23.38269, 0.244525, 27.0)",
+      "rotation_y": 329.999969482422,
+      "scale": "(0.86, 0.86, 0.86)",
+      "scene_path": "res://assets/MonstersPack_Ps1/FBX/Spider.fbx"
+    },
+    {
+      "hex_index": 1380,
+      "position": "(22.08364, 0.265212, 26.25)",
+      "rotation_y": 404.999969482422,
+      "scale": "(0.86, 0.86, 0.86)",
+      "scene_path": "res://assets/MonstersPack_Ps1/FBX/Spider.fbx"
+    },
+    {
+      "hex_index": 1562,
+      "position": "(25.98074, 0.241384, 30.0)",
+      "rotation_y": 314.999969482422,
+      "scale": "(0.86, 0.86, 0.86)",
+      "scene_path": "res://assets/MonstersPack_Ps1/FBX/Spider.fbx"
+    },
+    {
+      "hex_index": 1346,
+      "position": "(25.98074, 0.243507, 25.5)",
+      "rotation_y": 270.0,
+      "scale": "(0.86, 0.86, 0.86)",
+      "scene_path": "res://assets/MonstersPack_Ps1/FBX/Spider.fbx"
+    },
+    {
+      "hex_index": 1458,
+      "position": "(25.54774, 0.256359, 27.75)",
+      "rotation_y": 270.0,
+      "scale": "(2.15, 2.15, 2.15)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/ChiliPlant_Stage04.fbx"
+    },
+    {
+      "hex_index": 1266,
+      "position": "(25.98074, 0.273367, 24.0)",
+      "rotation_y": 270.0,
+      "scale": "(2.15, 2.15, 2.15)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Mushroom_01.fbx"
+    },
+    {
+      "hex_index": 1491,
+      "position": "(23.38269, 0.247093, 28.5)",
+      "rotation_y": 270.0,
+      "scale": "(2.15, 2.15, 2.15)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Mushroom_01.fbx"
+    },
+    {
+      "hex_index": 1492,
+      "position": "(24.24872, 0.259252, 28.5)",
+      "rotation_y": 270.0,
+      "scale": "(2.15, 2.15, 2.15)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Plant_03.fbx"
+    },
+    {
+      "hex_index": 1561,
+      "position": "(25.11476, 0.239008, 30.0)",
+      "rotation_y": 270.0,
+      "scale": "(2.15, 2.15, 2.15)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Plant_03.fbx"
+    },
+    {
+      "hex_index": 1560,
+      "position": "(24.24872, 0.250163, 30.0)",
+      "rotation_y": 270.0,
+      "scale": "(2.15, 2.15, 2.15)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Plant_03.fbx"
+    },
+    {
+      "hex_index": 1592,
+      "position": "(23.81569, 0.263115, 30.75)",
+      "rotation_y": 270.0,
+      "scale": "(2.15, 2.15, 2.15)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Plant_03.fbx"
+    },
+    {
+      "hex_index": 1423,
+      "position": "(26.84681, 0.247602, 27.0)",
+      "rotation_y": 270.0,
+      "scale": "(2.15, 2.15, 2.15)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Plant_03.fbx"
+    },
+    {
+      "hex_index": 1386,
+      "position": "(27.2798, 0.254055, 26.25)",
+      "rotation_y": 270.0,
+      "scale": "(2.15, 2.15, 2.15)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Plant_03.fbx"
+    },
+    {
+      "hex_index": 1387,
+      "position": "(28.14586, 0.25251, 26.25)",
+      "rotation_y": 270.0,
+      "scale": "(2.15, 2.15, 2.15)",
+      "scene_path": "res://assets/EnvironomentPackV_2/FBX/Plant_03.fbx"
+    }
+  ],
+  "hex_list": 1801
+}

@@ -8,7 +8,7 @@ bg_color = Color(0.3491902, 0.3491902, 0.42358288, 0.90000004)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdc0w"]
 bg_color = Color(0.16007765, 0.16007765, 0.16007765, 0.337)
 
-[node name="HexLevelEditorPanel" type="Control"]
+[node name="HexLevelEditorPanel" type="Control" node_paths=PackedStringArray("asset_list")]
 top_level = true
 z_index = -14
 layout_mode = 3
@@ -20,6 +20,7 @@ offset_right = -40.0
 grow_horizontal = 0
 mouse_filter = 2
 script = ExtResource("1_hdc0w")
+asset_list = NodePath("Control/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/AssetListContainer")
 
 [node name="Control" type="Control" parent="."]
 custom_minimum_size = Vector2(200, 800)

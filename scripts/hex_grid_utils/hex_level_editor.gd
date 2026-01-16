@@ -73,12 +73,15 @@ func toggle_edit_mode():
 
 func show_editor_ui():
 	if editor_panel_scene:
+		var canvas_layer = CanvasLayer.new()
+		canvas_layer.layer = 128
 		editor_ui = editor_panel_scene.instantiate() as EditorPanelUI
 		editor_ui.asset_selected.connect(_on_asset_selected)
 		editor_ui.save_pressed.connect(_on_save_pressed)
 		editor_ui.load_pressed.connect(_on_load_pressed)
 		editor_ui.clear_all_pressed.connect(_on_clear_all_pressed)
-		get_tree().root.add_child(editor_ui)
+		canvas_layer.add_child.call_deferred(editor_ui)
+		get_tree().root.add_child.call_deferred(canvas_layer)
 		_update_asset_list_ui()
 
 func hide_editor_ui():
@@ -125,6 +128,7 @@ func place_asset():
 
 	var asset = HexUtils.place_on_hex(hovered, asset_scene, highlight_grid)
 	if asset:
+		asset.add_to_group("level_editor_created_asset")
 		asset.rotation_degrees.y = rotation_y
 		asset.scale = Vector3.ONE * scale_factor
 		placed_assets[hovered] = asset

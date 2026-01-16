@@ -2,7 +2,7 @@ extends Control
 
 class_name EditorPanelUI
 
-@onready var asset_list: ItemList = %AssetListContainer
+@export var asset_list: ItemList
 
 signal asset_selected(index: int)
 signal save_pressed(path: String)

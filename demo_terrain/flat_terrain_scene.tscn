@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=3 uid="uid://c7u64tpv6byvb"]
+[gd_scene load_steps=123 format=3 uid="uid://c7u64tpv6byvb"]
 
 [ext_resource type="Script" uid="uid://cesf3dtykb3pa" path="res://addons/post_processing/node/post_process.gd" id="1_781qp"]
 [ext_resource type="Texture2D" uid="uid://cdx7ceoux78g0" path="res://demo_terrain/textures/yellow_grass.png" id="2_diq8e"]
@@ -11,9 +11,6 @@
 [ext_resource type="FastNoiseLite" uid="uid://c4332g4a8o75g" path="res://demo_terrain/resources/hex_terrain_mountain_noise.tres" id="4_8apfb"]
 [ext_resource type="Texture2D" uid="uid://ba6285rpeyj4l" path="res://demo_terrain/textures/snow.png" id="5_l3sdd"]
 [ext_resource type="Shader" uid="uid://cw7s1kyrfhtxe" path="res://demo_terrain/shaders/terrain.gdshader" id="6_8c8ug"]
-[ext_resource type="FastNoiseLite" uid="uid://cgxvojmlhcxha" path="res://demo_terrain/resources/rect_terrain_biomes_noise.tres" id="7_pdqbd"]
-[ext_resource type="FastNoiseLite" uid="uid://b0o4avj71sfcj" path="res://demo_terrain/resources/rect_terrain_plain_noise.tres" id="8_tlppm"]
-[ext_resource type="FastNoiseLite" uid="uid://beit0r3ccwphn" path="res://demo_terrain/resources/rect_terrain_mountain_noise.tres" id="9_6vlvq"]
 [ext_resource type="Script" uid="uid://cw3abxlpjtjk4" path="res://scripts/hex_grid_utils/highlight_hex_tile_on_grid.gd" id="12_jgh0i"]
 [ext_resource type="Script" uid="uid://bw0rxpg0mbanv" path="res://scripts/mechanics/camera_movement_panning/simple_camera_movement.gd" id="14_7phjy"]
 [ext_resource type="Resource" uid="uid://c0dsfxhwb8bwe" path="res://addons/post_processing/resource/no_effects_example.tres" id="14_ttnod"]
@@ -149,20 +146,6 @@ transform = Transform3D(0.5, -1.49012e-08, -0.866025, 0.433013, 0.866025, 0.25, 
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5iorj")
-
-[node name="RectRidgeHexGrid" type="RectRidgeHexGrid" parent="."]
-_height = 12
-_width = 12
-noise_biomes = ExtResource("7_pdqbd")
-noise_plain_hill = ExtResource("8_tlppm")
-noise_mountain_water = ExtResource("9_6vlvq")
-texture_plain = ExtResource("2_diq8e")
-texture_hill = ExtResource("3_dt225")
-texture_water = ExtResource("4_0msuc")
-texture_mountain = ExtResource("5_l3sdd")
-_divisions = 7
-_shader = ExtResource("6_8c8ug")
-visible = false
 
 [node name="HexagonalRidgeHexGrid" type="HexagonalRidgeHexGrid" parent="." node_paths=PackedStringArray("camera") groups=["HexGrid"]]
 _size = 24
