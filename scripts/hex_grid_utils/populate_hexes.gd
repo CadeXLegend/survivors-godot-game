@@ -9,10 +9,10 @@ extends Node
 @export var amountOfFaunaToSpawn: int
 @export var amountOfBuildingsToSpawn: int
 
-func _ready() -> void:
-	populate_at_random(amountOfFloraToSpawn, flora)
-	populate_at_random(amountOfFaunaToSpawn, fauna)
-	populate_at_random(amountOfBuildingsToSpawn, buildings)
+#func _ready() -> void:
+	#populate_at_random(amountOfFloraToSpawn, flora)
+	#populate_at_random(amountOfFaunaToSpawn, fauna)
+	#populate_at_random(amountOfBuildingsToSpawn, buildings)
 
 func populate_at_random(count: int, spawnables: Spawnables):
 	var available = grid.get_hex_meshes().duplicate()

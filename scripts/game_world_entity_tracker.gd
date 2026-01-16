@@ -6,7 +6,10 @@ func player() -> Player:
 func enemies() -> Array[Node]:
 	return get_tree().get_nodes_in_group("Mobs")
 
-func find_nearest_enemy(ref: Node2D) -> Node2D:
+func world_grids() -> Array[Node]:
+	return get_tree().get_nodes_in_group("HexGrid")
+
+func find_nearest_enemy(ref: Node) -> Node:
 	var nearest = null
 	var min_distance = INF
 	for body in enemies():

@@ -7,16 +7,14 @@ static func get_hex_center(mesh: HexMesh, grid: Node) -> Vector3:
 		center += v
 	return center / vertices.size() + grid.global_position
 
-static func place_on_hex(hex_mesh: HexMesh, packed_scene: PackedScene, grid: Node):
+static func place_on_hex(hex_mesh: HexMesh, packed_scene: PackedScene, grid: Node) -> Node:
 	if packed_scene == null:
 		return
-	#var spawnable := packed_scene.instantiate() as Node3D
+
 	var center := get_hex_center(hex_mesh, grid)
 	center.y = get_hex_surface_y(hex_mesh, grid)
 	var object = game_state_responder.spawn(packed_scene).as_child_of(grid).at_3d(center).create()
-	#if scaleObjectToHex:
-		#object.scale = Vector3(0.01, 0.01, 0.01)
-		#object.scale = get_object_to_hex_scale(hex_mesh, object, grid)
+	return object
 
 static func get_object_to_hex_scale(hex_mesh: HexMesh, object: Node, grid: Node, target_scale: float = 0.5) -> Vector3:
 	# find largest dimension of model
