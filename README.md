@@ -9,6 +9,13 @@ This repo serves as my playground for trying out different ways to orchestrate a
 
 Currently my goal isn't to make any one specific kind of game, it's to explore ways to create a framework for composition-driven game development
 
+## Todo
+
+- Explore making an `interact` popup ring UI
+  - It might be fun to use this with the hex grid system
+- Maybe make a mini-dialogue system
+- Hex tile movement system
+
 ## Key Principles
 
 - Composition over Inheritance: Systems are independent and composable
