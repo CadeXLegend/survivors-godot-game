@@ -15,8 +15,8 @@ func _ready() -> void:
 
 func populate_assets(asset_names: Array):
 	asset_list.clear()
-	for name in asset_names:
-		asset_list.add_item(str(name))
+	for asset_name in asset_names:
+		asset_list.add_item(str(asset_name))
 
 func set_selected_asset(index: int, _asset_names: Array):
 	asset_list.deselect_all()
