@@ -38,6 +38,11 @@ This compositional approach aims for declarative-first implementations of mechan
 Let's take a Player as an example:
 
 ```mermaid
+---
+config:
+  treemap:
+    showValues: false
+---
 treemap-beta
 "Player - Composed of Independent Systems"
     "Movement": 1
@@ -56,6 +61,11 @@ The higher complexity the system, the more specific
 Let's say we have a simple Movement System with free movement:
 
 ```mermaid
+---
+config:
+  treemap:
+    showValues: false
+---
 treemap-beta
 "Movement - Composed of Independent Systems"
     "Actions"
