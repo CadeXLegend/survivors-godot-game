@@ -1,7 +1,7 @@
 extends Node
 
-func player() -> Player:
-	return get_tree().get_first_node_in_group("Players")
+#func player() -> Player:
+	#return get_tree().get_first_node_in_group("Players")
 
 func enemies() -> Array[Node]:
 	return get_tree().get_nodes_in_group("Mobs")

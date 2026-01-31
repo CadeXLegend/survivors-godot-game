@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PostProcessingConfiguration" load_steps=2 format=3 uid="uid://c0dsfxhwb8bwe"]
+[gd_resource type="Resource" script_class="PostProcessingConfiguration" format=3 uid="uid://c0dsfxhwb8bwe"]
 
 [ext_resource type="Script" uid="uid://dm3mngxlevre0" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="1_6y0uy"]
 

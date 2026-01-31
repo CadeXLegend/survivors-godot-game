@@ -1,0 +1,139 @@
+[gd_scene load_steps=4 format=3 uid="uid://7dt4f1hh1jvb"]
+
+[ext_resource type="Script" uid="uid://d1t1j427wup2m" path="res://scripts/hex_grid/hex_level_editor_ui/hex_level_editor_ui.gd" id="1_hdc0w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cltnq"]
+bg_color = Color(0.3491902, 0.3491902, 0.42358288, 0.90000004)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdc0w"]
+bg_color = Color(0.16007765, 0.16007765, 0.16007765, 0.337)
+
+[node name="HexLevelEditorPanel" type="Control" node_paths=PackedStringArray("asset_list", "spawn_list", "assets_toggle")]
+top_level = true
+z_index = -14
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_right = -40.0
+grow_horizontal = 0
+mouse_filter = 2
+script = ExtResource("1_hdc0w")
+asset_list = NodePath("Control/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/AssetListContainer")
+spawn_list = NodePath("Control/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/AssetListContainer")
+assets_toggle = NodePath("Control/AssetsToggle")
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(200, 800)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_bottom = 800.0
+grow_horizontal = 0
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cltnq")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 120
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+draw_focus_border = true
+horizontal_scroll_mode = 0
+
+[node name="AssetListContainer" type="ItemList" parent="Control/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+mouse_behavior_recursive = 2
+auto_width = true
+auto_height = true
+
+[node name="InnerPanel" type="PanelContainer" parent="Control/PanelContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hdc0w")
+
+[node name="Title" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.5
+offset_right = 45.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Level Editor"
+
+[node name="Save" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -101.0
+offset_right = 90.0
+offset_bottom = -70.0
+grow_vertical = 0
+text = "Save"
+
+[node name="Load" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 111.0
+offset_top = -101.0
+offset_right = 171.0
+offset_bottom = -70.0
+grow_vertical = 0
+text = "Load"
+
+[node name="ClearPlacements" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 29.0
+offset_top = -63.0
+offset_right = 171.0
+offset_bottom = -32.0
+grow_vertical = 0
+text = "Clear Placements"
+
+[node name="AssetsToggle" type="CheckButton" parent="Control"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 767.0
+offset_right = 157.0
+offset_bottom = 798.0
+text = "Spawns"
+
+[connection signal="pressed" from="Control/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Control/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="Control/ClearPlacements" to="." method="_on_clear_pressed"]
+[connection signal="toggled" from="Control/AssetsToggle" to="." method="_on_assets_toggle_toggled"]

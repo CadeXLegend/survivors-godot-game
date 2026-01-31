@@ -3,17 +3,17 @@ extends Node2D
 
 @export var damageNumbers: DamageNumbers
 
-func disable_self(ref: Node2D):
+func disable_self(ref: Node3D):
 	ref.visible = false
 
-func disable_self_and_physics(ref: Node2D):
+func disable_self_and_physics(ref: Node3D):
 	disable_self(ref)
 	ref.set_process_mode.call_deferred(Node.PROCESS_MODE_DISABLED)
 
-func enable_self(ref: Node2D):
+func enable_self(ref: Node3D):
 	ref.visible = true
 
-func enable_self_and_physics(ref: Node2D):
+func enable_self_and_physics(ref: Node3D):
 	enable_self(ref)
 	ref.set_process_mode.call_deferred(Node.PROCESS_MODE_ALWAYS)
 

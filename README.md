@@ -64,22 +64,22 @@ Let's say we have a simple Movement System with free movement:
 ---
 config:
   treemap:
-    showValues: false
+	showValues: false
 ---
 treemap-beta
 "Movement - Composed of Independent Systems"
     "Actions"
-        "Walk": 1
-        "Run": 1
+		"Walk": 1
+		"Run": 1
     "Inputs"
-        "Up": 1
-        "Down": 1
-        "Left": 1
-        "Right": 1
+		"Up": 1
+		"Down": 1
+		"Left": 1
+		"Right": 1
     "Quantity"
-        "MinSpeed": 1
-        "MaxSpeed": 1
-        "CurrentSpeed": 4
+		"MinSpeed": 1
+		"MaxSpeed": 1
+		"CurrentSpeed": 4
 ```
 
 Nothing is inherited, everything is built from foundational types of objects and functions

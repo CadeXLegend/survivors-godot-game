@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DamageNumbers" load_steps=3 format=3 uid="uid://cofoms3hldfjn"]
+[gd_resource type="Resource" script_class="DamageNumbers" format=3 uid="uid://cofoms3hldfjn"]
 
 [ext_resource type="Script" uid="uid://08r3ycmj0b46" path="res://scripts/damage_numbers.gd" id="1_edafj"]
 
