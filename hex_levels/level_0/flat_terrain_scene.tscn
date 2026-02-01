@@ -19,7 +19,6 @@
 [ext_resource type="Script" uid="uid://c73jjrf3ko8ij" path="res://scripts/hex_grid/populate_hexes.gd" id="20_rjlo4"]
 [ext_resource type="Resource" uid="uid://71s4bp0wkw8h" path="res://resources/entities/hex_assets_buildings.tres" id="21_1kwst"]
 [ext_resource type="Resource" uid="uid://bwq3eyckih55o" path="res://resources/entities/hex_assets_flora.tres" id="21_7s1ai"]
-[ext_resource type="Script" uid="uid://xi6safwqr5ih" path="res://scripts/mechanics/hex_grid/hex_grid_traversal.gd" id="22_1kwst"]
 [ext_resource type="Script" uid="uid://pq212gaf2ihw" path="res://scripts/hex_grid/hex_level_editor.gd" id="23_jembd"]
 [ext_resource type="Script" uid="uid://hdrsqhcav8y8" path="res://scripts/hex_grid/HexTileCoordSystem.gd" id="119_p0qfo"]
 [ext_resource type="PackedScene" uid="uid://7dt4f1hh1jvb" path="res://hex_levels/hex_level_editor_panel.tscn" id="121_rteyo"]
@@ -42,18 +41,6 @@ glow_enabled = true
 script = ExtResource("3_4c801")
 maximum = 1.0
 current = 1.0
-metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
-
-[sub_resource type="Resource" id="Resource_1kwst"]
-script = ExtResource("3_4c801")
-maximum = 10.0
-current = 1.0
-metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
-
-[sub_resource type="Resource" id="Resource_sdmo6"]
-script = ExtResource("3_4c801")
-maximum = 3.0
-current = 3.0
 metadata/_custom_type_script = "uid://b0jdpwn1bs00j"
 
 [node name="Scene" type="Node3D" unique_id=1260257514]
@@ -131,12 +118,3 @@ metadata/_custom_type_script = "uid://pq212gaf2ihw"
 script = ExtResource("119_p0qfo")
 hexGrid = NodePath("../HexagonalRidgeHexGrid")
 metadata/_custom_type_script = "uid://hdrsqhcav8y8"
-
-[node name="HexGridTraversal" type="Node" parent="." unique_id=66456138 node_paths=PackedStringArray("hexTileCoordSystem", "highlightSystem")]
-unique_name_in_owner = true
-script = ExtResource("22_1kwst")
-hexTileCoordSystem = NodePath("../HexTileCoordSystem")
-highlightSystem = NodePath("../HexagonalRidgeHexGrid")
-move_speed = SubResource("Resource_1kwst")
-move_points = SubResource("Resource_sdmo6")
-metadata/_custom_type_script = "uid://xi6safwqr5ih"

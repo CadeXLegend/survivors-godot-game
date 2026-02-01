@@ -105,7 +105,7 @@ project/assembly_name="Getting started with Godot 4"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/colorpicker_presets/plugin.cfg", "res://addons/fancy_folder_colors/plugin.cfg", "res://addons/polygon2d_tool/plugin.cfg", "res://addons/post_processing/plugin.cfg", "res://addons/sota/plugin.cfg")
+enabled=PackedStringArray("res://addons/fancy_folder_colors/plugin.cfg", "res://addons/polygon2d_tool/plugin.cfg", "res://addons/post_processing/plugin.cfg", "res://addons/sota/plugin.cfg")
 
 [file_customization]
 

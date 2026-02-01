@@ -123,8 +123,8 @@ func _highlight_hex(hex_data: HexData):
 		_highlight_overlays[hex_data].visible = true
 
 func _get_reachable_hexes(
-	start_hex: HexData, 
-	max_distance: int, 
+	start_hex: HexData,
+	max_distance: float, 
 	valid_directions: HexData.MovementFlags,
 	traversable_types: Array[HexData.TerrainType],
 	cost_validator: Callable
@@ -184,7 +184,7 @@ func highlight_single_hex(hex_data: HexData):
 
 func highlight_movement_range(
 	start_hex: HexData,
-	max_distance: int,
+	max_distance: float,
 	valid_directions: HexData.MovementFlags = HexData.MovementFlags.ALL,
 	traversable_types: Array[HexData.TerrainType] = [
 		HexData.TerrainType.PLAIN, 

@@ -202,8 +202,7 @@ func place_asset():
 		await asset.ready
 		if not is_assets_mode:
 			if asset is HexSpawnPoint:
-				var node = asset.spawn(hovered_hex_data, coordSystem.hexGrid)
-				%HexGridTraversal.init(node, hovered_hex_data)
+				var node = asset.inject(hovered_hex_data, coordSystem.hexGrid, coordSystem, highlightSystem)
 		asset.add_to_group("level_editor_created_asset")
 		asset.rotation_degrees.y = rotation_y
 		asset.scale = Vector3.ONE * scale_factor
@@ -299,6 +298,17 @@ func save_level(path: String):
 				"rotation_y": asset.rotation_degrees.y,
 				"scale": str(asset.scale)
 			})
+	for hex_data in placed_spawns.keys():
+		var asset = placed_spawns[hex_data]
+		var hex_index = hex_data_list.find(hex_data)
+		if hex_index >= 0:
+			save_data.assets.append({
+				"hex_index": hex_index,
+				"scene_path": asset.scene_file_path,
+				"position": str(asset.position),
+				"rotation_y": asset.rotation_degrees.y,
+				"scale": str(asset.scale)
+			})
 
 	var file = FileAccess.open(path, FileAccess.WRITE)
 	file.store_string(JSON.stringify(save_data, "  "))
@@ -322,13 +332,18 @@ func load_level(path: String):
 			var hex_data = hex_data_list[hex_index]
 			var asset_scene = load(asset_data.scene_path) as PackedScene
 			if asset_scene:
-				var new_asset = HexUtils.place_on_hex(hex_data, asset_scene, coordSystem.hexGrid)
-				if new_asset:
-					new_asset.add_to_group("level_editor_created_asset")
-					new_asset.position = parse_vector3(asset_data.position)
-					new_asset.rotation_degrees.y = float(asset_data.rotation_y)
-					new_asset.scale = parse_vector3(asset_data.scale)
-					placed_assets[hex_data] = new_asset
+				var asset = HexUtils.place_on_hex(hex_data, asset_scene, coordSystem.hexGrid)
+				if asset:
+					await asset.ready
+					asset.add_to_group("level_editor_created_asset")
+					asset.position = parse_vector3(asset_data.position)
+					asset.rotation_degrees.y = float(asset_data.rotation_y)
+					asset.scale = parse_vector3(asset_data.scale)
+					if asset is HexSpawnPoint:
+						var node = asset.inject(hex_data, coordSystem.hexGrid, coordSystem, highlightSystem)
+						placed_spawns[hex_data] = asset
+					else:
+						placed_assets[hex_data] = asset
 
 func parse_vector3(json_string: String) -> Vector3:
 	var clean = json_string.replace("(", "").replace(")", "")

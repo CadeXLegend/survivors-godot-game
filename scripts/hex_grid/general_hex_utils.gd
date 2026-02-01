@@ -16,7 +16,12 @@ static func place_on_hex(hex_data: HexData, packed_scene: PackedScene, grid: Hex
 
 	var center := hex_data.center
 	center.y = hex_data.y_offset
-	var object = game_state_responder.spawn(packed_scene).as_child_of(grid).at_3d(center).create()
+	var object = game_state_responder \
+					.spawn(packed_scene) \
+					.as_child_of(grid) \
+					.at_3d(center) \
+					.align_to_surface(hex_data, grid.get_world_3d().direct_space_state) \
+					.create()
 	return object
 
 static func get_object_to_hex_scale(hex_data: HexData, object: Node, grid: HexagonalRidgeHexGrid, target_scale: float = 0.5) -> Vector3:

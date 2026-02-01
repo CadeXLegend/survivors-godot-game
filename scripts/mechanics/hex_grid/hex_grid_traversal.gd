@@ -6,6 +6,8 @@ extends Node
 @export var node_to_move: Node3D
 @export var move_speed: Quantity
 @export var move_points: Quantity
+@export var show_highlights_on_ready: bool
+@export var show_highlight_on_init: bool
 
 @export var default_move_flags: HexData.MovementFlags = HexData.MovementFlags.ALL
 @export var traversable_types: Array[HexData.TerrainType] = [
@@ -29,6 +31,7 @@ extends Node
 
 var current_hex: HexData
 var is_moving: bool = false
+var injected: bool = false
 
 signal hex_changed(new_hex: HexData)
 signal movement_completed()
@@ -37,7 +40,8 @@ func _ready() -> void:
 	_setup_input_bindings()
 	move_points.modified.connect(_on_move_points_modified)
 	move_points.none_left.connect(_on_move_points_depleted)
-	hexTileCoordSystem.generation_complete.connect(highlight_move_range)
+	if show_highlights_on_ready:
+		hexTileCoordSystem.generation_complete.connect(highlight_move_range)
 
 func _setup_input_bindings() -> void:
 	var bindings = [
@@ -56,15 +60,21 @@ func _setup_input_bindings() -> void:
 			bindings[i].onActionBegin.connect(try_move.bind(directions[i]))
 
 func _input(event):
+	if not injected: return
+
 	if event.is_action("select"):
 		var clicked_hex = highlightSystem.get_current_hover_hex_data()
 		if clicked_hex and clicked_hex != current_hex:
 			move_to_hex_pathfinding(clicked_hex)
 
-func init(node: Node3D, hex: HexData):
+func inject(node: Node3D, hex: HexData, coord_system: HexTileCoordSystem, highlight_system: HighlightHexesOnGrid):
+	hexTileCoordSystem = coord_system
+	highlightSystem = highlight_system
 	node_to_move = node
 	current_hex = hex
-	highlight_move_range()
+	injected = true
+	if show_highlight_on_init:
+		highlight_move_range()
 
 func snap_to_hex(hex_data: HexData) -> void:
 	if hex_data == null:
@@ -140,15 +150,20 @@ func _on_move_points_depleted() -> void:
 func _move_to_hex(target_hex: HexData, cost: float) -> void:
 	is_moving = true
 	move_points.remove(cost)
+	
+	var ray_start := target_hex.center + Vector3.UP * 10.0
+	var ray_end := target_hex.center + Vector3.DOWN * 10.0
+	var query := PhysicsRayQueryParameters3D.create(ray_start, ray_end)
+	var result := node_to_move.get_world_3d().direct_space_state.intersect_ray(query)
 
-	var tween = create_tween()
-	var start_pos = node_to_move.global_position
-	var end_pos = _get_hex_world_position(target_hex)
+	if result.is_empty():
+		_complete_move(target_hex)
+		return
 
-	var distance = start_pos.distance_to(end_pos)
-	var duration = distance / (move_speed.current if move_speed and move_speed.current > 0 else 1.0)
-
-	tween.tween_property(node_to_move, "global_position", end_pos, duration)
+	var target_pos = result.position + Vector3.UP * 0.5
+	var tween := create_tween()
+	var duration := node_to_move.global_position.distance_to(target_pos) / move_speed.current
+	tween.tween_property(node_to_move, "global_position", target_pos, duration)
 	tween.tween_callback(_complete_move.bind(target_hex))
 
 func _complete_move(new_hex: HexData) -> void:
@@ -243,14 +258,22 @@ func _move_to_next_in_path(path: Array[HexData], path_index: int) -> void:
 	var next_hex = path[path_index]
 	var cost = _get_terrain_move_cost(next_hex)
 	
-	var tween = create_tween()
-	var start_pos = node_to_move.global_position
-	var end_pos = _get_hex_world_position(next_hex)
-	
-	var distance = start_pos.distance_to(end_pos)
-	var duration = distance / (move_speed.current if move_speed and move_speed.current > 0 else 1.0)
-	
-	tween.tween_property(node_to_move, "global_position", end_pos, duration)
+	var space_state = node_to_move.get_world_3d().direct_space_state
+	var ray_start = next_hex.center + Vector3.UP * 10.0
+	var ray_end = next_hex.center + Vector3.DOWN * 10.0
+	var query := PhysicsRayQueryParameters3D.create(ray_start, ray_end)
+	var result := space_state.intersect_ray(query)
+
+	if result.is_empty():
+		_move_to_next_in_path(path, path_index + 1)
+		return
+
+	move_points.remove(cost)
+
+	var target_pos = result.position + Vector3.UP * 0.5
+	var tween := create_tween()
+	var duration := node_to_move.global_position.distance_to(target_pos) / move_speed.current
+	tween.tween_property(node_to_move, "global_position", target_pos, duration)
 	tween.tween_callback(_move_to_next_in_path.bind(path, path_index + 1))
 
 func _complete_path_movement(final_hex: HexData) -> void:
@@ -259,7 +282,6 @@ func _complete_path_movement(final_hex: HexData) -> void:
 	hex_changed.emit(current_hex)
 	movement_completed.emit()
 	highlight_move_range()
-
 
 func _find_path_to_hex(target_hex: HexData) -> Array[HexData]:
 	if not target_hex in get_move_range():

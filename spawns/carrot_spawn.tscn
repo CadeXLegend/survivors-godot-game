@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7p5y04slkj6"]
-
-[ext_resource type="Script" uid="uid://ftbsg2mw325v" path="res://scripts/mechanics/spawning/hex_spawn_point/hex_spawn_point.gd" id="1_l4q2e"]
-[ext_resource type="PackedScene" uid="uid://fs8gaabd3ykv" path="res://assets/Buildings_RTS/FBX/Carrot.fbx" id="2_sfiwq"]
-
-[node name="HexSpawnPoint" type="Node3D"]
-script = ExtResource("1_l4q2e")
-entity = ExtResource("2_sfiwq")
